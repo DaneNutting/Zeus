@@ -1,0 +1,60 @@
+CREATE TABLE IF NOT EXISTS Backlog_Items (
+PBI_ID					INT UNSIGNED  NOT NULL AUTO_INCREMENT,
+PBI_Title				VARCHAR(100),
+PBI_Description			VARCHAR(300),
+PBI_Effort				INT UNSIGNED,
+Priority_ID				INT UNSIGNED,
+State_ID				INT UNSIGNED,
+Iteration_ID			INT UNSIGNED,
+Project_ID				INT UNSIGNED,
+FOREIGN KEY (Priority_ID) REFERENCES Priority (Priority_ID),
+FOREIGN KEY (State_ID) REFERENCES States (State_ID),
+FOREIGN KEY (Iteration_ID) REFERENCES Iteration (Iteration_ID),
+FOREIGN KEY (Project_ID) REFERENCES Project (Project_ID),
+PRIMARY KEY  (PBI_ID)
+);
+
+CREATE TABLE IF NOT EXISTS Project (
+Project_ID				INT UNSIGNED NOT NULL AUTO_INCREMENT,
+Project_Name			VARCHAR(100),
+Project_Description		VARCHAR(200),
+Project_Deadline		DATE,
+Project_Start_Date		DATE,
+PRIMARY KEY (Project_ID)
+);
+
+CREATE TABLE IF NOT EXISTS Users (
+User_ID					INT UNSIGNED NOT NULL AUTO_INCREMENT,
+User_Forename			VARCHAR(20),
+User_Surname			VARCHAR(20),
+User_Email				VARCHAR(50),
+User_Password			VARCHAR(20),
+User_Photo				LONGBLOB,
+User_Role_ID			INT UNSIGNED,
+FOREIGN KEY (User_Role_ID) REFERENCES User_Roles (User_Role_ID),
+PRIMARY KEY (User_ID)
+);
+
+CREATE TABLE IF NOT EXISTS Project_Note (
+Project_Note_ID			INT UNSIGNED NOT NULL AUTO_INCREMENT,
+Project_ID				INT UNSIGNED,
+Note					VARCHAR(500),
+FOREIGN KEY (Project_ID) REFERENCES Project (Project_ID),
+PRIMARY KEY (Project_Note_ID)
+);
+
+CREATE TABLE IF NOT EXISTS Release_Note (
+Release_Note_ID			INT UNSIGNED NOT NULL AUTO_INCREMENT,
+Release_ID				INT UNSIGNED,
+Note					VARCHAR(500),
+FOREIGN KEY (Release_ID) REFERENCES Releases (Release_ID),
+PRIMARY KEY (Release_Note_ID)
+);
+
+CREATE TABLE IF NOT EXISTS Task_Note (
+Task_Note_ID			INT UNSIGNED NOT NULL AUTO_INCREMENT,
+Task_ID					INT UNSIGNED,
+Note					VARCHAR(500),
+FOREIGN KEY (Task_ID) REFERENCES Task (Task_ID),
+PRIMARY KEY (Task_Note_ID)
+);
