@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS Priority (
-Priority_ID				INT UNSIGNED  NOT NULL AUTO_INCREMENT
+Priority_ID				INT UNSIGNED  NOT NULL AUTO_INCREMENT,
 Priority_Description	VARCHAR(15),
-PRIMARY KEY	 (Priority_Descrption)
+PRIMARY KEY	 (Priority_ID)
 );
 
 CREATE TABLE IF NOT EXISTS Iteration (
