@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS Priority (
 Priority_ID				INT UNSIGNED  NOT NULL AUTO_INCREMENT
 Priority_Description	VARCHAR(15),
-PRIMARY KEY	 Priority_Descrption)
+PRIMARY KEY	 (Priority_Descrption)
 );
 
 CREATE TABLE IF NOT EXISTS Iteration (
@@ -10,11 +10,11 @@ Iteration_Name			VARCHAR(100),
 Iteration_Start_Date	DATE,
 Iteration_End_Date		DATE,
 Release_ID				INT UNSIGNED,
-FOREIGN KEY  (Release_ID) REFERENCES Release (Release_ID),
+FOREIGN KEY  (Release_ID) REFERENCES Releases (Release_ID),
 PRIMARY KEY (Iteration_ID)
 );
  
-CREATE TABLE IF NOT EXISTS Release (
+CREATE TABLE IF NOT EXISTS Releases (
 Release_ID				INT UNSIGNED  NOT NULL AUTO_INCREMENT,
 Release_Name			VARCHAR(50),
 Release_Start_Date		DATE,
@@ -35,13 +35,13 @@ State_ID				INT UNSIGNED,
 Iteration_ID			INT UNSIGNED,
 PBI_ID					INT UNSIGNED,
 FOREIGN KEY  (Assignee) 	REFERENCES Users 	     (User_ID),
-FOREIGN KEY  (State_ID) 	REFERENCES State     	 (State_ID),
+FOREIGN KEY  (State_ID) 	REFERENCES States     	 (State_ID),
 FOREIGN KEY  (Iteration_ID) REFERENCES Iteration 	 (Iteration_ID),
 FOREIGN KEY  (PBI_ID) 		REFERENCES Backlog_Items (PBI_ID),
 PRIMARY KEY  (Task_ID)
 );
 
-CREATE TABLE IF NOT EXISTS State (
+CREATE TABLE IF NOT EXISTS States (
 State_ID				INT UNSIGNED  NOT NULL AUTO_INCREMENT,
 State_Name				VARCHAR(50),
 State_Type				VARCHAR(50),
