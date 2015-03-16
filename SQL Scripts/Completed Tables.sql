@@ -1,17 +1,17 @@
-DROP TABLE Backlog_Items;
-DROP TABLE Project;
-DROP TABLE Users;
-DROP TABLE Project_Note;
-DROP TABLE Release_Note;
-DROP TABLE Task_Note;
-DROP TABLE Priority;
-DROP TABLE Iteration;
-DROP TABLE Releases;
-DROP TABLE Task;
-DROP TABLE States;
-DROP TABLE User_Roles;
-DROP TABLE Backlog_Note;
-DROP TABLE Iteration_Note;
+DROP IF EXISTS Backlog_Items;
+DROP IF EXISTS Project;
+DROP IF EXISTS Users;
+DROP IF EXISTS Project_Note;
+DROP IF EXISTS Release_Note;
+DROP IF EXISTS Task_Note;
+DROP IF EXISTS Priority;
+DROP IF EXISTS Iteration;
+DROP IF EXISTS Releases;
+DROP IF EXISTS Task;
+DROP IF EXISTS States;
+DROP IF EXISTS User_Roles;
+DROP IF EXISTS Backlog_Note;
+DROP IF EXISTS Iteration_Note;
 
 CREATE TABLE IF NOT EXISTS Backlog_Items (
 PBI_ID					INT UNSIGNED  NOT NULL AUTO_INCREMENT,
