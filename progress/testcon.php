@@ -1,29 +1,35 @@
 <?php
   // Connecting to the MySQL server
   $host="10.168.1.92";
-  $user_name="wearezeu_phpserv@10.168.1.253";
+  $user_name="wearezeu_phpserv";
   $pwd="0!ZeusPhP!0";
-  $dbName="wearezeu_test01"; 
-  
+  $dbName="wearezeu_test01";
+    
   // Create connection
-  $conn = new mysqli($host, $user_name, $pwd, $dbnName);
+  $conn = new mysqli($host, $user_name, $pwd, $dbName);
   // Check connection
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   } 
-  echo "Connected successfully";
+  //echo "Connected successfully";
 
   // Storing form values into PHP variables
+  //$emailAddress = "test";
   $emailAddress = $_POST["emailAddress"]; // Since method="post" in the form
+  //$emailAddress=mysql_real_escape_string($emailAddress);
+  
 
   // Inserting these values into the MySQL table
-  $query = "insert into InterestedEmailAds (EmailAddress) values ($emailAddress)";
+  $query = "insert into InterestedEmailAds (EmailAddress) values ('$emailAddress')";
+  //$query = "insert into InterestedEmailAds (EmailAddress) values ('test@test.com')";
   
   if ($conn->query($query) === TRUE) {
-      echo "New record created successfully";
+      //echo "New record created successfully"
+	  header("Location: http://www.wearezeus.co.uk");
   } else {
-      echo "Error: " . $query . "<br>" . $conn->error;
+      //echo "Error: " . $query . "<br>" . $conn->error;
   }
 
   $conn->close();
 ?>
+
