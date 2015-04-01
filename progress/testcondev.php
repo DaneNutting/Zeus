@@ -13,7 +13,8 @@
   } 
 
   // Storing form values into PHP variables
-  $emailAddress = $_POST["emailAddress"]; // Since method="post" in the form
+  //$emailAddress = $_POST["emailAddress"]; // Since method="post" in the form
+  $emailAddress = $_POST["postemail"];
   //$emailAddress=mysql_real_escape_string($emailAddress);
   
 
@@ -22,10 +23,10 @@
   
   if ($conn->query($query) === TRUE) {
       //echo "New record created successfully"
-	  header("Location: http://www.wearezeus.co.uk");
+	  header("Location: http://www.wearezeus.co.uk/indexdev.html");
   } else {
       //echo "Error: " . $query . "<br>" . $conn->error;
-	  header("Location: http://www.wearezeus.co.uk");
+	  header("Location: http://www.wearezeus.co.uk/indexdev.html");
   }
 
   $conn->close();

@@ -17,13 +17,15 @@
 <link rel="shortcut icon" href="images/ico/favicon.png">
 <!--[if IE]><![endif]-->
 <link rel="stylesheet" href="css/style.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/countdown.js"></script>
 <script src="js/owlcarousel.js"></script>
 <script src="js/uikit.scrollspy.js"></script>
 <script src="js/scripts.js"></script>
-<!-- Google Analytics code, need to add this to all pages!-->
+<script src="js/ajax.js"></script>
 
+<!-- Google Analytics code, need to add this to all pages!-->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -33,28 +35,6 @@
   ga('send', 'pageview');
 </script>
 
-<script>
-	function submitForm()
-	{
-		{
-    if (str.length == 0) { 
-        document.getElementById("emailAddress").innerHTML = "";
-        return;
-    } else {
-        //var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                //document.getElementById("emailAddress").innerHTML = xmlhttp.responseText;
-				xmlhttp.open("POST", "testcon.php", true);
-        		xmlhttp.send();
-            }
-        }
-        //xmlhttp.open("GET", "gethint.php?q=" + str, true);
-        //xmlhttp.send();
-    }
-}
-	};
-</script>
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body id="backtotop">
@@ -107,15 +87,15 @@
         <h2>Sign up below and we'll let you know when we launch</h2>
         
 		<div id="signupform" class="sb-search clearfix">
-			<form action="testcon.php" method="post" id="contact" class="clearfix">
-            <!--<form id="contact" method="post" class="clearfix">-->
-				<input class="sb-search-input" id="emailAddress" name="emailAddress" placeholder="Enter email ..." type="text" value="">
-				<input class="sb-search-submit" value="" type="submit">
-				<!--<button class="formbutton" type="submit">submit<span class="fa fa-search"></span></button>-->
-                <button class="formbutton" type="submit" >Submit</button>
-                <!--<button class="formbutton" onClick="submitForm">Submit</button>-->
-			</form>
+			<!--<form action="testcondev.php" method="POST" id="contact" class="clearfix">-->
+            <!-- <form id="contact" class="clearfix"> -->
+				<input class="sb-search-input" id="emailAddress" name="emailAddress" placeholder="Enter email ..." type="email" value="" required>
+                <input class="sb-search-submit" value="">
+				<!--<input class="sb-search-submit" value="" type="submit">-->
+                <button class="formbutton" id="SubmitForm" >Submit</button>
+			<!-- </form> -->
 		</div>
+		<div id="success" class="sb-search clearfix" style="opacity:0; transition: opacity 2s;"></div>
 	
 	</div>
 </div>
