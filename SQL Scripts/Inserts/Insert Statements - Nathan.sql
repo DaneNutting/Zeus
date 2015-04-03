@@ -69,9 +69,7 @@ INSERT INTO States
 VALUES
 (NULL, 'New', 'PBI'),
 (NULL, 'In Progress', 'PBI'),
+(NULL, 'In Review', 'PBI'),
 (NULL, 'Done', 'PBI'),
-(NULL, 'Closed', 'PBI'),
-(NULL, 'New', 'Task'),
-(NULL, 'In Progress', 'Task'),
-(NULL, 'Done', 'Task'),
-(NULL, 'Closed', 'Task');
+(NULL, 'Re-Opened', 'PBI');
+(NULL, 'Closed', 'PBI');
