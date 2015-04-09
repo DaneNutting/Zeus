@@ -1,3 +1,4 @@
+/* PBIs 2a1-5a3 and 13a */
 INSERT INTO Backlog_Items
 VALUES
 (NULL, 'Create PBI Form', 'Pay attention to date formats during creation', NULL, '3', '1', NULL, '1'),
@@ -14,4 +15,8 @@ VALUES
 (NULL, 'Integrate value into database', NULL, NULL, '3', '1', NULL, '1'),
 (NULL, 'Design UI for choosing status', NULL, NULL, '3', '1', NULL, '1'),
 (NULL, 'Choose status', 'decide standard terms', '1', '2', '1', NULL '1'),
-(NULL, 'Integrate with database' 'show changes/choices in database', NULL, '1', '1', NULL, '1');
+(NULL, 'Integrate with database', 'show changes/choices in database', NULL, '1', '1', NULL, '1'),
+(NULL, 'Create social media accounts', 'Create Zeus Agile Management Twitter, Facebook, Google + and LinkedIn accounts', NULL, '2', '2', '1'),
+(NULL, 'Product Stationary', 'Decide on colours and requirements for branded items?*is that what you mean here?', NULL, '3', '1', NULL, '1'),
+(NULL, 'Advertising banners for websites', 'decide on format, content, colour for standard advertising banners', NULL, '2', '1', NULL, '1'),
+(NULL, 'Comex Stand', 'Decide on content to present, physical advertising and promotion materials, clothing etc.', NULL, '2', '1', NULL, '1');
