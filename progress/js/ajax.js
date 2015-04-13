@@ -1,33 +1,51 @@
-// JavaScript Document
  $(function () {
-	
-    $(".formbutton").click(function(e) {
-    	e.preventDefault();
-      // validate and process form here 
-	  var email = document.getElementById("emailAddress").value;
-	  var status = document.getElementById("success");
 
+    $(".formbutton").click(function(e) {
+        e.preventDefault();
+
+      // Variables 
+      var emailfield = document.getElementById("emailAddress");
+      var email = document.getElementById("emailAddress").value;
+	  var status = document.getElementById("success");
+	  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+      // Validate for a blank email address and show warning if blank.
 	  if (!email){
 	  	status.innerHTML = "Please enter an email address";
 		status.style.opacity = 1;
+		status.style.color = "#ff6700";
+		status.className = status.className + " shake";
 	  	return false;
-	  }			
+	  }
+      
+      // Validate for a proper email address and show warning if not.
+	  if (email.match(mailformat)){
+	  }
+	  else {
+	      status.innerHTML = "Please enter a valid email address.";
+	      status.style.opacity = 1;
+	      status.style.color = "#ff6700";
+	      //status.style.webkitAnimationName = 'thumb';
+	      status.className = status.className + " shake";
+	      return false;
+	  }
 
-	  //alert (email);return false;
-
+      // ajax request to post email address to the database using DBCon PHP file.
 	  $.ajax({
 		type: "POST",
-		url: "testcondev.php",
+		url: "DBCon.php",
 		data: {postemail:email},
 		success: function() {
 			console.log('success');
 			status.innerHTML = "Thanks for your support, we'll let you know how we're getting on!";
 			status.style.opacity = 1;
+			emailfield.value = " ";
 		},
 		error: function() {
 			console.log('error')
 			status.innerHTML = "Sorry, we couldn't save your email address at this time.";
 			status.style.opacity = 1;
+			status.style.color = "#ff6700";
 		}
 	  });
 	
