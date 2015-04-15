@@ -9,7 +9,7 @@ VALUES
 
 INSERT INTO Iteration
 VALUES
-(NULL, 'Sprint 1', '2015-03-11', '2015-03-25', '1')
+(NULL, 'Sprint 1', '2015-03-11', '2015-03-25', '1'),
 (NULL, 'Sprint 2', '2015-03-25', '2015-04-08', '1');
 
 /* For PBIs 1a1 to 1f1 and 6a1 to 12a1 */
@@ -58,9 +58,9 @@ VALUES
 
 
 /* To be decided on */
-INSERT INTO Priority_ID
+INSERT INTO Priority
 VALUES
-(NULL, 'Critical')
+(NULL, 'Critical'),
 (NULL, 'High'),
 (NULL, 'Medium'),
 (NUll, 'Low');
@@ -72,5 +72,11 @@ VALUES
 (NULL, 'In Progress', 'PBI'),
 (NULL, 'In Review', 'PBI'),
 (NULL, 'Done', 'PBI'),
-(NULL, 'Re-Opened', 'PBI');
+(NULL, 'Re-Opened', 'PBI'),
+(NULL, 'New', 'Tasks'),
+(NULL, 'In Progress', 'Tasks'),
+(NULL, 'In Review', 'Tasks'),
+(NULL, 'Done', 'Tasks'),
+(NULL, 'Re-Opened', 'Tasks'),
+(NULL, 'Closed', 'Tasks');
 (NULL, 'Closed', 'PBI');
