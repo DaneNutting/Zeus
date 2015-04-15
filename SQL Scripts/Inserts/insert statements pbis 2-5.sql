@@ -14,7 +14,7 @@ VALUES
 (NULL, 'Design UI for assigning Effort and Time', 'Decide on drop down menu/sliders', NULL, '3', '1', NULL, '1'),
 (NULL, 'Integrate value into database', NULL, NULL, '3', '1', NULL, '1'),
 (NULL, 'Design UI for choosing status', NULL, NULL, '3', '1', NULL, '1'),
-(NULL, 'Choose status', 'decide standard terms', '1', '2', '1', NULL '1'),
+(NULL, 'Choose status', 'decide standard terms', '1', '2', '1', NULL, '1'),
 (NULL, 'Integrate with database', 'show changes/choices in database', NULL, '1', '1', NULL, '1'),
 (NULL, 'Create social media accounts', 'Create Zeus Agile Management Twitter, Facebook, Google + and LinkedIn accounts', NULL, '2', '2', '1'),
 (NULL, 'Product Stationary', 'Decide on colours and requirements for branded items?*is that what you mean here?', NULL, '3', '1', NULL, '1'),

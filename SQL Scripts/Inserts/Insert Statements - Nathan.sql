@@ -49,7 +49,7 @@ VALUES
 (NULL, 'Task/PBI creator field in database', '', '', '3' '1', NULL, '1'),
 (NULL, 'Task/PBI created date', '', '', '3', '1', NULL, '1'),
 (NULL, 'Task/PBI updated date', '', '', '3', '1', NULL, '1'),
-(NULL, 'Display one Burndown graph on a page', 'Design page template, build, PHP, JavaScript', '', '3', '1', NULL '1'),
+(NULL, 'Display one Burndown graph on a page', 'Design page template, build, PHP, JavaScript', '', '3', '1', NULL, '1'),
 (NULL, 'Display multiple burndowns per page', 'Adapt PHP and JavaScript', '', '3', '1', NULL, '1'),
 (NULL, 'Research Bootstrap Login', '', '', '3', '1', NULL, '1'),
 (NULL, 'Implement a simple login system', '', '', '3', '1', NULL, '1'),
