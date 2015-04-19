@@ -86,6 +86,7 @@ Iteration_Name			VARCHAR(100),
 Iteration_Start_Date	DATE,
 Iteration_End_Date		DATE,
 Release_ID				INT UNSIGNED,
+Starting_Effort			INT UNSIGNED,
 FOREIGN KEY  (Release_ID) REFERENCES Releases (Release_ID),
 PRIMARY KEY (Iteration_ID)
 );
