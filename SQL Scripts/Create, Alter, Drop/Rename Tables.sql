@@ -1,0 +1,16 @@
+RENAME TABLE
+Backlog_Items TO backlog_items,
+Backlog_Note TO backlog_note,
+InterestedEmailAds TO interested_emails_ads,
+Iteration TO iteration,
+Iteration_Note TO iteration_note,
+Priority TO priority,
+Project TO project,
+Project_Note TO project_note,
+Release_Note TO release_note,
+Releases TO releases,
+States TO states,
+Task TO task,
+Task_Note TO task_note,
+User_Roles TO user_roles,
+Users TO users;
