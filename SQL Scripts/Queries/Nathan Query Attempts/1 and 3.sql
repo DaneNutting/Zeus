@@ -1,0 +1,2 @@
+SELECT iteration_name, starting_effort
+FROM iteration
