@@ -4,7 +4,7 @@ $host="10.168.1.92"; // Host name
 $username="wearezeu_phpserv"; // Mysql username 
 $password="0!ZeusPhP!0"; // Mysql password 
 $db_name="wearezeu_test01"; // Database name 
-$tbl_name="backlog_items"; // Table name 
+$tbl_name="Backlog_Items_Test"; // Table name 
 
 // Connect to server and select database.
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 

@@ -41,7 +41,7 @@
 <td><input name="project_id" type="number" id="project_id"></td>
 </tr>
 <tr>
-<td colspan="3" align="center"><input type="submit" name="Submit" value="Submit"></td>
+<td colspan="8" align="center"><input type="submit" name="Submit" value="Submit"></td>
 </tr>
 </table>
 </form>
