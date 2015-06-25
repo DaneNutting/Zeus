@@ -4,7 +4,7 @@ $host="10.168.1.92"; // Host name
 $username="wearezeu_phpserv"; // Mysql username 
 $password="0!ZeusPhP!0"; // Mysql password 
 $db_name="wearezeu_test01"; // Database name 
-$tbl_name="Backlog_Items_Test"; // Table name 
+$tbl_name="backlog_items"; // Table name 
 
 // Connect to server and select database.
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
@@ -20,7 +20,7 @@ $state_id=$_POST['state_id'];
 $iteration_id=$_POST['iteration_id'];
 $project_id=$_POST['project_id'];
 
-// Insert data into mysql - doesnt work with auto increment at the moment
+// Insert data into mysql 
 $sql="INSERT INTO $tbl_name(pbi_id, pbi_title, pbi_description, pbi_effort, priority_id, state_id, iteration_id, project_id)VALUES('NULL', '$pbi_title', '$pbi_description', '$pbi_effort', '$priority_id', '$state_id', '$iteration_id', '$project_id')";
 $result=mysql_query($sql);
 
@@ -28,7 +28,7 @@ $result=mysql_query($sql);
 if($result){
 echo "Successful";
 echo "<BR>";
-echo "<a href='insert_pbis.php'>Back to main page</a>";
+echo "<a href='insert_pbi.php'>Back to main page</a>";
 }
 
 else {

@@ -3,7 +3,7 @@ $host="10.168.1.92"; // Host name
 $username="wearezeu_phpserv"; // Mysql username 
 $password="0!ZeusPhP!0"; // Mysql password 
 $db_name="wearezeu_test01"; // Database name 
-$tbl_name="backlog_items_test"; // Table name 
+$tbl_name="backlog_items"; // Table name 
 
 // Connect to server and select database.
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
@@ -13,12 +13,12 @@ $sql="SELECT * FROM $tbl_name";
 $result=mysql_query($sql);
 ?>
 
-<table width="1000" border="0" cellspacing="1" cellpadding="0">
+<table width="800" border="0" cellspacing="1" cellpadding="0">
 <tr>
 <td>
-<table width="1000" border="1" cellspacing="0" cellpadding="3">
+<table width="800" border="1" cellspacing="0" cellpadding="3">
 <tr>
-<td colspan="10"><strong>List data from mysql </strong> </td>
+<td colspan="10"><strong>List records from Backlog Items </strong> </td>
 </tr>
 
 <tr>
@@ -48,8 +48,8 @@ while($rows=mysql_fetch_array($result)){
 <td><? echo $rows['iteration_id']; ?></td>
 <td><? echo $rows['project_id']; ?></td>
 
-<td align="center"><a href="update_pbi.php?id=<? echo $rows['pbi_id']; ?>">update</a></td>
-<td align="center"><a href="delete_pbis_ac.php?id=<? echo $rows['pbi_id']; ?>">delete</a></td>
+<td align="center"><a href="update_pbi.php?pbi_id=<? echo $rows['pbi_id']; ?>">update</a></td>
+<td align="center"><a href="delete_pbi_ac.php?pbi_id=<? echo $rows['pbi_id']; ?>">delete</a></td>
 </tr>
 
 <?php

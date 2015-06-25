@@ -20,7 +20,7 @@ $result=mysql_query($sql);
 if($result){
 	echo "Deleted Successfully";
 	echo "<BR>";
-	echo "<a href='list_records_pbis.php'>Return to Backlog Items</a>";
+	echo "<a href='list_pbi.php'>Return to Backlog Items</a>";
 }
 	else {
 	echo "ERROR";

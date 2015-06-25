@@ -3,7 +3,7 @@ $host="10.168.1.92"; // Host name
 $username="wearezeu_phpserv"; // Mysql username 
 $password="0!ZeusPhP!0"; // Mysql password 
 $db_name="wearezeu_test01"; // Database name 
-$tbl_name="backlog_items_test"; // Table name 
+$tbl_name="backlog_items"; // Table name 
 
 // Connect to server and select database.
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
@@ -26,9 +26,12 @@ $result=mysql_query($sql);
 if($result){
 	echo "Successful";
 	echo "<BR>";
-	echo "<a href='list_records_pbis.php'>View result</a>";
+	echo "<a href='list_pbi.php'>Return to Backlog Items</a>";
+	
 	}
 else {
+// display error
 	echo "ERROR";
+	
 	}
 ?>

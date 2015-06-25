@@ -3,7 +3,7 @@ $host="10.168.1.92"; // Host name
 $username="wearezeu_phpserv"; // Mysql username 
 $password="0!ZeusPhP!0"; // Mysql password 
 $db_name="wearezeu_test01"; // Database name 
-$tbl_name="backlog_items_test"; // Table name
+$tbl_name="backlog_items"; // Table name
 
 // Connect to server and select database.
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
@@ -18,14 +18,14 @@ $result=mysql_query($sql);
 $rows=mysql_fetch_array($result);
 ?>
 
-<table width="400" border="0" cellspacing="1" cellpadding="0">
+<table width="700" border="0" cellspacing="1" cellpadding="0">
 <tr>
-<form name="form1" method="post" action="update_pbis_ac.php">
+<form name="form1" method="post" action="update_pbi_ac.php">
 <td>
 <table width="100%" border="0" cellspacing="1" cellpadding="0">
 <tr>
 <td>&nbsp;</td>
-<td colspan="3"><strong>Update PBI Data</strong> </td>
+<td colspan="3"><strong>Update Record</strong> </td>
 </tr>
 <tr>
 <td align="center">&nbsp;</td>

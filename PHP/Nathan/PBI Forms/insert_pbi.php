@@ -1,14 +1,14 @@
 <table width="300" border="0" align="center" cellpadding="0" cellspacing="1">
 <tr>
-<td><form name="form1" method="post" action="insert_pbis_ac.php">
+<td><form name="form1" method="post" action="insert_pbi_ac.php">
 <table width="100%" border="0" cellspacing="1" cellpadding="3">
 <tr>
-<td colspan="3"><strong>Insert Data Into PBI's </strong></td>
+<td colspan="3"><strong>Insert a Backlog Item </strong></td>
 </tr>
 <tr>
-<td>Title</td>
-<td>:</td>
-<td><input name="pbi_title" type="text" id="pbi_title"></td>
+<td width="71">Title</td>
+<td width="6">:</td>
+<td width="301"><input name="pbi_title" type="text" id="pbi_title"></td>
 </tr>
 <tr>
 <td>Description</td>
