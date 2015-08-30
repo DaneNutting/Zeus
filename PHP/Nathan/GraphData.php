@@ -19,10 +19,10 @@
   
 
   // Inserting these values into the MySQL table
-  $query = "SELECT a.iteration_id, a.iteration_name, a.starting_effort, SUM(pbi_effort) 'effort', IFNULL((SELECT SUM(pbi_effort) FROM backlog_items WHERE iteration_id <= a.iteration_id
-AND state_id = 4),0) 'effort_done_to_date', a.starting_effort - IFNULL((SELECT SUM(pbi_effort) FROM backlog_items WHERE iteration_id <= a.iteration_id AND state_id = 4),0) 'remaining_effort' FROM iteration a LEFT OUTER JOIN backlog_items b ON a.iteration_id = b.iteration_id WHERE b.pbi_effort IS NOT NULL AND a.iteration_start_date < CURDATE() GROUP BY a.iteration_id Order by a.iteration_id";
+  $query = "SELECT a.iteration_id, a.iteration_name, a.starting_effort, SUM(pbi_effort) 'effort', IFNULL((SELECT SUM(pbi_effort) FROM backlog_items WHERE iteration_id <= a.iteration_id AND state_id = 4),0) 'effort_done_to_date', a.starting_effort - IFNULL((SELECT SUM(pbi_effort) FROM backlog_items WHERE iteration_id <= a.iteration_id AND state_id = 4),0) 'remaining_effort' FROM iteration a LEFT OUTER JOIN backlog_items b ON a.iteration_id = b.iteration_id WHERE b.pbi_effort IS NOT NULL AND a.iteration_start_date < CURDATE() GROUP BY a.iteration_id Order by a.iteration_id, iteration_name, starting_effort - (SELECT SUM(pbi_effort) FROM backlog_items WHERE iteration_id <= a.iteration_id AND state_id = 4)";
   
-  /**/
+  /*SELECT a.iteration_id, a.iteration_name, a.starting_effort, SUM(pbi_effort) 'effort', IFNULL((SELECT SUM(pbi_effort) FROM backlog_items WHERE iteration_id <= a.iteration_id
+AND state_id = 4),0) 'effort_done_to_date', a.starting_effort - IFNULL((SELECT SUM(pbi_effort) FROM backlog_items WHERE iteration_id <= a.iteration_id AND state_id = 4),0) 'remaining_effort' FROM iteration a LEFT OUTER JOIN backlog_items b ON a.iteration_id = b.iteration_id WHERE b.pbi_effort IS NOT NULL AND a.iteration_start_date < CURDATE() GROUP BY a.iteration_id Order by a.iteration_id*/
   
   /*"SELECT b.iteration_id, iteration_name, SUM( PBI_effort ) as 'effort', starting_effort, CalcEffRemaining(b.iteration_id) as 'effort_done_to_date', (starting_effort - CalcEffRemaining(b.iteration_id)) as 'remaining_effort'
 	FROM  backlog_items a
