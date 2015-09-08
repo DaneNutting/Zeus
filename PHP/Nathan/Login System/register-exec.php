@@ -67,7 +67,7 @@
 	
 	//Check for duplicate login ID
 	if($login != '') {
-		$qry = "SELECT * FROM test_user WHERE user_email='$user_email'";
+		$qry = "SELECT * FROM users WHERE user_email='$user_email'";
 		$result = mysql_query($qry);
 		if($result) {
 			if(mysql_num_rows($result) > 0) {
@@ -90,7 +90,7 @@
 	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO test_user(user_forename, user_surname, user_email, user_password) VALUES('$user_forename','$user_surname','$user_email','".md5($_POST['user_password'])."')";
+	$qry = "INSERT INTO users(user_forename, user_surname, user_email, user_password, user_role_id) VALUES('$user_forename','$user_surname','$user_email','".md5($_POST['user_password'])."', '2')";
 	$result = @mysql_query($qry);
 	
 	//Check whether the query was successful or not

@@ -2,7 +2,7 @@
 # Table structure for table 'members'
 #
 
-CREATE TABLE `test_user` (
+CREATE TABLE `users` (
   `user_id` int(11) unsigned NOT NULL auto_increment,
   `user_forename` varchar(100) default NULL,
   `user_surname` varchar(100) default NULL,
