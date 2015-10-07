@@ -1,7 +1,6 @@
-/* Task Table Inserts*/
-/* Task ID, Task Title, Task Description, Task estimated Duration, Task hours done, Assignee, State_ID, Iteration_ID, PBI ID */
-INSERT INTO Task
+INSERT INTO task
 VALUES
+/* Task ID, Task Title, Task Description, Task estimated Duration, Task hours done, Assignee, State_ID, Iteration_ID, PBI ID */
 (NULL, 'Create Content Map', 'Decide where content will go in terms of website layout', '2.00', NULL, '2', '7', '2', '1'),
 (NULL, 'Create Sitemap', 'Decide on website layout', '2.00', NULL, '2', '7', '2', '1'),
 (NULL, 'Identify number of static templates', NULL, NULL, NULL, '2', '7', NULL, '2'),

@@ -1,6 +1,6 @@
-INSERT INTO Backlog_Items
+INSERT INTO backlog_items
 VALUES
- ID, Title, Description, Effort, Priority, State, Iteration, Project /
+ /* ID, Title, Description, Effort, Priority, State, Iteration, Project */
 (NULL, 'Content/Site Map', 'Diagram detailing where content goes/Navigational layout of the website', '5', '3', '1', '2', '1'),
 (NULL, 'Wireframes', 'Diagrams of structural layout of the website', '5', '3', '1', NULL, '1'),
 (NULL, 'Brand Identity Document', 'Document detailing all aspects of coporate branding - Colours, Logos, Fonts', '8', '3', '1', '1', '1'),

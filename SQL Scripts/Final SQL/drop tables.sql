@@ -1,0 +1,14 @@
+DROP TABLE backlog_items;
+DROP TABLE project;
+DROP TABLE users;
+DROP TABLE project_note;
+DROP TABLE release_note;
+DROP TABLE task_note;
+DROP TABLE priority;
+DROP TABLE iteration;
+DROP TABLE releases;
+DROP TABLE task;
+DROP TABLE states;
+DROP TABLE user_roles;
+DROP TABLE backlog_note;
+DROP TABLE iteration_note;
