@@ -67,6 +67,7 @@
 			$_SESSION['SESS_MEMBER_ID'] = $member['user_id'];
 			$_SESSION['SESS_FIRST_NAME'] = $member['user_forename'];
 			$_SESSION['SESS_LAST_NAME'] = $member['user_surname'];
+			$_SESSION['SESS_USER_ROLE'] = $member['user_role_id']
 			session_write_close();
 			header("location: member-index.php");
 			exit();
