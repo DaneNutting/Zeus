@@ -137,6 +137,13 @@ span {
     position:relative;
 }
 
+.createSprintYesNo{
+    clear:both;
+    float:none;
+    position:relative;
+    padding-top: 10px;
+}
+
 .createSprintForm input{
     position: absolute;
     top:0px;

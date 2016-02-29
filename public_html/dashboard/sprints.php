@@ -163,7 +163,7 @@
             </div>
           </form>
           
-          <div class="createSprintForm">
+          <div class="createSprintYesNo">
             <a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a>
           </div>
         </div>   

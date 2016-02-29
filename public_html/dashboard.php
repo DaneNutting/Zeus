@@ -115,7 +115,7 @@
       </div>
       
       <div id="content2" class="fullwidth clearfix">
-        <div id="pieContainer1" class="ct-chart pieContainer"></div>
+        <div id="pieContainer1" class="ct-chart pieContainer"> <h1>Effort Done</h1> </div>
         <div id="pieContainer2" class="ct-chart pieContainer"></div>
         <div id="pieContainer3" class="ct-chart pieContainer"></div>
       </div>

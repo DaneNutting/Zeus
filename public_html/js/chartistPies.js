@@ -101,12 +101,14 @@ function createPies(results){
   
   var chart = new Chartist.Pie('#pieContainer1', {
       series: pie1,
-      labels: [1,2]
+      labels: ["Effort Done", " "]
   }, 
   {
   donut: true,
   donutWidth : 45,
-  showLabel: false
+  showLabel: false,
+  //labelOffset: -50,
+  labelDirection: 'implode'
   });
 
   chart.on('draw', function(data) {
@@ -147,6 +149,10 @@ function createPies(results){
       data.element.animate(animationDefinition, false);
     }
   });
+  var pie1Width = ($('#pieContainer1').width() - 100)/2;
+  console.log(pie1Width);
+  $('#pieContainer1 h1').css({left: pie1Width + 'px'});
+  //({ display: "block" });
 
 };
 

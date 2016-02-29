@@ -57,7 +57,8 @@
 						$("#msgImg").remove();
 						$("#msgH1").remove();
 						$("#msgClose").remove();
-						$("br").remove();			
+						$("br").remove();
+                        $('#SprintCreateForm').trigger("reset");			
 					});
 				},
 				error: function(results) {

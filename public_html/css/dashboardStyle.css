@@ -702,6 +702,15 @@ td{
 tr{
 	text-align: left;
 }
+
+.pieContainer{
+    position: relative;
+}
+
+.pieContainer h1{
+    position: absolute;
+    top:45%;
+}
 /* ==================================================
    Responsive Media Queries - Tablets
 ================================================== */
