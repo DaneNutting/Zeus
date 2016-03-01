@@ -16,19 +16,19 @@
 
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="stylesheet" href="chartist-js-master/dist/chartist.min.css">
-<link rel="stylesheet" href="chartist-js-master/site/styles/main.scss">
+<!--<link rel="stylesheet" href="chartist-js-master/site/styles/main.scss">-->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/popupstyle.css">
+<!--<link rel="stylesheet" href="css/popupstyle.css">-->
 <link rel="stylesheet" href="css/graphstyle.css"></link>
-<link rel="stylesheet" href="css/signup.css"></link>	 
-<link rel="stylesheet" href="css/dashboardStyle.css">
+<!--<link rel="stylesheet" href="css/signup.css"></link>	 -->
+<link rel="stylesheet" href="css/dashboardStyle.css"></link>
 
     
 <!--<script src="js/scripts.js"></script></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/uikit.scrollspy.js"></script>
+<!--<script src="js/uikit.scrollspy.js"></script>
 <script src="js/scroll.js"></script>
-<script src="js/ajax.js"></script>
+<script src="js/ajax.js"></script>-->
 <script src="js/velocity.js"></script>
 <script src="js/velocity.ui.js"></script>
 <script src="chartist-js-master/dist/chartist.min.js"></script>
@@ -140,22 +140,22 @@
     </div>
     
     
-    <div id="greyOut">
+    <!--<div id="greyOut">
     <!-- Popup Div Starts Here -->
-      <div id="popupContact">
+      <!--<div id="popupContact">-->
         <!-- Contact Us Form -->
-        <form action="#" id="pbi_form" method="post" name="form">
+        <!--<form action="#" id="pbi_form" method="post" name="form">-->
           <!--<img id="close" src="images/ZeusLogo.jpg" style="width:10%;">-->
-          <h2>Contact Us</h2>
+          <!--<h2>Contact Us</h2>
           <input id="name" name="name" placeholder="Name" type="text">
           <input id="email" name="email" placeholder="Email" type="text">
           <textarea id="msg" name="message" placeholder="Message"></textarea>
           <a href="#" id="submit">Send</a>
           <a href="#" id="close">Cancel</a>
         </form>
-      </div>
+      </div>-->
     <!-- Popup Div Ends Here -->
-    </div>
+    <!--</div>-->
 
     <div id="footer" class="fullwidth clearfix">
     	<p> footer</div>
