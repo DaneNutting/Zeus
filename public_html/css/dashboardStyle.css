@@ -709,7 +709,9 @@ tr{
 
 .pieContainer h1{
     position: absolute;
-    top:45%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
 }
 /* ==================================================
    Responsive Media Queries - Tablets

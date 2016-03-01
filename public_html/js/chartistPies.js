@@ -149,9 +149,9 @@ function createPies(results){
       data.element.animate(animationDefinition, false);
     }
   });
-  var pie1Width = ($('#pieContainer1').width() - 100)/2;
-  console.log(pie1Width);
-  $('#pieContainer1 h1').css({left: pie1Width + 'px'});
+//   var pie1Width = ($('#pieContainer1').width() - 100)/2;
+//   console.log(pie1Width);
+//   $('#pieContainer1 h1').css({left: pie1Width + 'px'});
   //({ display: "block" });
 
 };
