@@ -1,25 +1,34 @@
 <?php
 	ob_start();
 	
+    include('DatabaseCon.php');
+	//Start the session
 	session_start();
 	
+	//Obtain the token from the URL
 	$token=$_GET['token'];
 	
-	include("settings.php");
+	// Create connection
+    $conn = new mysqli($host, $user_name, $pwd, $dbName);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
 	
-	connect();
-	
+	//Check that the token has not been used already.
 	if(!isset($_POST['password'])){
 		$q="SELECT email FROM tokens WHERE token='".$token."' AND used=0";
-		$r=mysql_query($q);
+		$r=mysqli_query($conn, $q);
 		
-		while($row=mysql_fetch_array($r)){
+		while($row=mysqli_fetch_array($r, MYSQL_ASSOC)){
 			$email=$row['email'];
 			}
 			If ($email!=''){
 				$_SESSION['email']=$email;
 			}
-	else die("Invalid link or Password already changed");}
+	//If token has been used alreasy then display the following message		
+	else die("Invalid link or Password already changed");
+    }
 	
 	$pass=$_POST['password'];
 	$email=$_SESSION['email'];
@@ -127,14 +136,17 @@
 		//If passwords match the criteria then update the password in the database for the related email address
 		{
 			$q="UPDATE users2 SET user_password='$encrypt_pass' WHERE user_email='".$email."'";
-			$r=mysql_query($q);
+			$r=mysqli_query($conn, $q);
 			
 			//When password is updated successfully then set the token that was used to 1 so that it cannot be used again
-			if($r)mysql_query("UPDATE tokens SET used=1 WHERE token='".$token."'"); 
+			$q2 = "UPDATE tokens SET used=1 WHERE token='".$token."'";
+            if($r)mysqli_query($conn, $q2);
 			
 			//After password is updated direct the user to the password reset success page
 			header('Location: ../login_system/password-reset-success.php');
 			if(!$r)echo "An error occurred";
 		}
 	}
+	
+	$conn->close();
 ?>
