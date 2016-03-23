@@ -113,7 +113,7 @@
       </div>
       
       <div id="content3" class="fullwidth clearfix">
-      	<p> PBI's This Sprint</p> 
+      	<p> PBIs This Sprint</p> 
         <!--<ul class ="mylist"></ul>-->
         <div id="test">
           <table id="testtable" style="width:100%;">

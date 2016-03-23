@@ -97,7 +97,7 @@ function createPies(results){
     pie1.push(parseInt(value.effRem));
   })
   
-  console.log(pie1);
+  //console.log(pie1);
   
   var chart = new Chartist.Pie('#pieContainer1', {
       series: pie1,

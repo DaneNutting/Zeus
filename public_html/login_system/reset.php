@@ -1,7 +1,7 @@
 <?php
 	ob_start();
 	
-    include('DatabaseCon.php');
+    include('../php/DatabaseCon.php');
 	//Start the session
 	session_start();
 	
