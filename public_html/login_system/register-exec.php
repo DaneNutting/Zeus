@@ -3,7 +3,7 @@
 	session_start();
 	
 	//Include database connection details
-	require_once('config.php');
+	include('../php/DatabaseCon.php');
 	
 	//Array to store validation errors
 	$errmsg_arr = array();
@@ -11,33 +11,29 @@
 	//Validation error flag
 	$errflag = false;
 	
-	//Connect to mysql server
-	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-	if(!$link) {
-		die('Failed to connect to server: ' . mysql_error());
-	}
-	
-	//Select database
-	$db = mysql_select_db(DB_DATABASE);
-	if(!$db) {
-		die("Unable to select database");
-	}
+	// Create connection
+	$conn = new mysqli($host, $user_name, $pwd, $dbName);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	} 
 	
 	//Function to sanitize values received from the form. Prevents SQL injection
-	function clean($str) {
-		$str = @trim($str);
+	function clean($conn, $data)  {
+		$data = trim($data);
 		if(get_magic_quotes_gpc()) {
-			$str = stripslashes($str);
+			$data = stripslashes($data);
 		}
-		return mysql_real_escape_string($str);
+		$data = mysqli_real_escape_string($conn, $data);
+    return $data;
 	}
 	
 	//Sanitize the POST values
-	$user_forename = clean($_POST['user_forename']);
-	$user_surname = clean($_POST['user_surname']);
-	$user_email = clean($_POST['user_email']);
-	$user_password = clean($_POST['user_password']);
-	$cpassword = clean($_POST['cpassword']);
+	$user_forename = clean($conn, $_POST['user_forename']);
+	$user_surname = clean($conn, $_POST['user_surname']);
+	$user_email = clean($conn, $_POST['user_email']);
+	$user_password = clean($conn, $_POST['user_password']);
+	$cpassword = clean($conn, $_POST['cpassword']);
     
     //Create a unique salt. This will never leave PHP unencrypted.
 	$salt = "498#2D83B631%3800EBD!801600D*7E3CC13";
@@ -73,13 +69,13 @@
 	//Check for duplicate login ID
 	if($login != '') {
 		$qry = "SELECT * FROM users2 WHERE user_email='$user_email'";
-		$result = mysql_query($qry);
+		$result=mysqli_query($conn, $qry);
 		if($result) {
-			if(mysql_num_rows($result) > 0) {
+			if(mysqli_num_rows($result) > 0) {
 				$errmsg_arr[] = 'Email already in use';
 				$errflag = true;
 			}
-			@mysql_free_result($result);
+			@mysqli_free_result($result);
 		}
 		else {
 			die("Query failed");
@@ -95,8 +91,8 @@
 	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO users2(user_forename, user_surname, user_email, user_password, user_role_id) VALUES('$user_forename','$user_surname','$user_email','$encrypt_pass', '2')";
-	$result = @mysql_query($qry);
+	$qry = "INSERT INTO users2 (user_forename, user_surname, user_email, user_password, user_role_id) VALUES('$user_forename','$user_surname','$user_email','$encrypt_pass', '2')";
+	$result = mysqli_query($conn, $qry);
 	
 	//Check whether the query was successful or not
 	if($result) {
@@ -105,4 +101,6 @@
 	}else {
 		die("Query failed");
 	}
+	
+	$conn->close();
 ?>
