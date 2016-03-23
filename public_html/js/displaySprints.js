@@ -127,11 +127,17 @@ function populateSprints(results) {
                 //Cast the iteration dates from the results of the query to dates
                 var itStartDate = new Date(iterationStart[i]);
 				var itEndDate = new Date(iterationEnd[i]);
+                // var itStartDate = new Date(iterationStartReadable[i]);
+				// var itEndDate = new Date(iterationEndReadable[i]);
                 var itStartDateTitle = iterationStartReadable[i];
 				var itEndDateTitle = iterationEndReadable[i];
+                
+                console.log(date);
+                console.log(itStartDate);
+                console.log(itEndDate);
 			
                 //To show the current sprint find the sprint date 
-                if (itEndDate >= date && itStartDate <= date) {
+                if (itStartDate <= date && itEndDate >= date) {
                     $("#sprintsTable").append('<tr class="PBI">' +
                         '<td style="display:none">' + iterationID[i] + '</td>' +
                         '<td>' + iterationName[i] + '</td>' +
@@ -140,7 +146,19 @@ function populateSprints(results) {
 					//$("h2", ".twoThirdsWidth").append("Sprint Start:" + itStartDate.toDateString() + "     " + "Sprint End:" + itEndDate.toDateString());
 					$("h2", ".twoThirdsWidth").append("Sprint Start: " + itStartDateTitle);	
 					$("h3", ".twoThirdsWidth").append("Sprint End: " + itEndDateTitle);
-                };
+                }
+                // else{
+                //     if (itStartDate <= date) {console.log(iterationName[i] + " start date in the past " + itStartDate.toDateString())}
+                //     else{console.log(iterationName[i] + " start date in the future "+ itStartDate.toDateString())};
+                    
+                //     if(itEndDate >= date) {console.log(iterationName[i] + " expiry date is in the future " + itEndDate.toDateString())}
+                //     else {console.log(iterationName[i] + " expiry date in past " + itEndDate.toDateString())};
+                    
+                //     var start = new Date("Wed Feb 17 2016");
+                //     var end = new Date("Tue Mar 01 2016");
+                //     if (start < end) {"start date before todays date"}
+                //     else{console.log("Nope " + start.toDateString() + ' ' + end.toDateString())};
+                // };
 				
             };
         }

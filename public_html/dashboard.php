@@ -1,8 +1,6 @@
 <?php
-	//require_once($_SERVER['DOCUMENT_ROOT'] . '/login_system/auth.php' );
-  require_once('login_system/auth.php');
-  // $project = 1;
-  // require_once('project-access.php');
+   require_once('login_system/auth.php');
+
 ?>
 
 <!doctype html>
@@ -16,25 +14,19 @@
 
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="stylesheet" href="chartist-js-master/dist/chartist.min.css">
-<!--<link rel="stylesheet" href="chartist-js-master/site/styles/main.scss">-->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 <!--<link rel="stylesheet" href="css/popupstyle.css">-->
 <link rel="stylesheet" href="css/graphstyle.css"></link>
 <!--<link rel="stylesheet" href="css/signup.css"></link>	 -->
 <link rel="stylesheet" href="css/dashboardStyle.css"></link>
 
-    
-<!--<script src="js/scripts.js"></script></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!--<script src="js/uikit.scrollspy.js"></script>
-<script src="js/scroll.js"></script>
-<script src="js/ajax.js"></script>-->
-<script src="js/velocity.js"></script>
-<script src="js/velocity.ui.js"></script>
+<!--<script src="js/velocity.js"></script>
+<script src="js/velocity.ui.js"></script>-->
 <script src="chartist-js-master/dist/chartist.min.js"></script>
-<script src="js/chartistGraph.js"></script> 
-<script src="js/pbiData.js"></script>
-<script src="js/chartistPies.js"></script>
+<script src="js/min/chartistGraph.js"></script> 
+<script src="js/min/pbiData.js"></script>
+<script src="js/min/chartistPies.js"></script>
 <!--<script src="./js/all.js"></script>  -->
 
 <!-- Google Analytics code, need to add this to all pages!-->

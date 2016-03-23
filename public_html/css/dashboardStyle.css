@@ -3,8 +3,8 @@
 ================================================== */
 
 @import url("reset.css");
-@import url("owlcarousel.css");
-@import url("uikit.scrollspy.css");
+/*@import url("owlcarousel.css");
+@import url("uikit.scrollspy.css");*/
 
 /* ==================================================
    Icon Fonts
@@ -712,7 +712,9 @@ tr{
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    padding:none;
 }
+
 /* ==================================================
    Responsive Media Queries - Tablets
 ================================================== */

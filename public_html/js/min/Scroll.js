@@ -1,0 +1,1 @@
+$(document).ready(function(){var lastlink;$("a[href*=#]").bind("click",function(e){e.preventDefault();e.stopPropagation();var target=$(this).attr("href");if(!lastlink&&target=="#hero"){}else{$(lastlink).removeClass("underline");}$(target).velocity("scroll",{easing:[300,28],duration:1000,});if(target!="#hero"){$(this).addClass("underline");lastlink=$(this);}});});
