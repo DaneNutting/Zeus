@@ -1,7 +1,7 @@
 <?php
     //Make sure the user is logged in
     require_once('../login_system/auth.php');
-    require_once('../php/config.php');
+    require_once('../php/DatabaseCon.php');
   
     //Start the session
     session_start();
