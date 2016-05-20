@@ -5,20 +5,20 @@
 /*================================================================================================================*/
 
 $(document).ready(function() {
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
 
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
 
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : sParameterName[1];
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
         }
-    }
-};
+    };
 	
 	var sprintNoFromURL = getUrlParameter("SprintNo");
 		
@@ -52,6 +52,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 			}            
 		});
 	}
+
 });
 
 //This function acts as a parent function and is fired on the success call back of the above AJAX request
@@ -132,9 +133,9 @@ function populateSprints(results) {
                 var itStartDateTitle = iterationStartReadable[i];
 				var itEndDateTitle = iterationEndReadable[i];
                 
-                console.log(date);
-                console.log(itStartDate);
-                console.log(itEndDate);
+                // console.log(date);
+                // console.log(itStartDate);
+                // console.log(itEndDate);
 			
                 //To show the current sprint find the sprint date 
                 if (itStartDate <= date && itEndDate >= date) {
@@ -606,9 +607,49 @@ function populateSprints(results) {
             location = "./backlog.php?PBIId=" + this.id
         })
         
+    //var taskTile = document.getElementById('Task175');
+    
+    var taskTile = document.getElementsByClassName('Task');
+    
+    // taskTile.addEventListener('touchmove', function(event){
+    //     var touch = event.targetTouches[0];
+    //     console.log(touch.pageX);
+    //     console.log(touch.pageY);
+    // },false);
+    
+    // var myFunction = function() {
+    // var attribute = this.getAttribute("data-myattribute");
+    // alert(attribute);
+    // };
+
+    for (var i = 0; i < taskTile.length; i++) {
+        taskTile[i].addEventListener('touchmove', function(event){
+        // var touch = event.targetTouches[0];
+        // console.log(touch.pageX);
+        // console.log(touch.pageY);
+        //console.log (event.target);
+        console.log ("event target: " + event.target.parentNode.id);
+        console.log ("Task pbi Id: " + event.target.parentNode.dataset.pbiid);
+        console.log ("class name: " + event.target.parentNode.parentNode.className);
+        console.log (event.target);
+    }, false);
+    }
+    
+    for (var i = 0; i < taskTile.length; i++) {
+        taskTile[i].addEventListener('touchend', function(event){
+        // var touch = event.targetTouches[0];
+        // console.log(touch.pageX);
+        // console.log(touch.pageY);
+        console.log ("event target: " + event.target.parentNode.id);
+        console.log ("Task pbi Id: " + event.target.parentNode.dataset.pbiid);
+        console.log ("class name: " + event.target.parentNode.parentNode.className);
+        console.log (event.target);
+    }, false);
+    }
+        
 };
 
-
+/** function to listen for a task being dragged on the kanban board */
 function dragAndDrop(){
 	$('.Task').on('dragstart', function(event) {
 			event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
@@ -640,7 +681,7 @@ function dragAndDrop(){
 				if($(event.target).attr('class') === 'todo'){
 					event.target.appendChild(document.getElementById(notecard));
 					console.log('Moved to to do');
-					//console.log($(event.target).attr('id'));
+					//console.log($(event.target).attr('class'));
 					changeTaskState(7,notecard);
 				}						
 				else if ($(event.target).attr('class') === 'inprogress'){
@@ -657,6 +698,7 @@ function dragAndDrop(){
 		});
 };
 
+/** AJAX called by the drag functions above */
 function changeTaskState(stateID,taskName){
 	$.ajax({
 		type: "POST",
