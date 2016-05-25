@@ -89,7 +89,7 @@ ON d.iteration_id = n.iteration_id;
 /* Hard Coded */
 SELECT (IFNULL(n.numerator,0)/d.denominator) * 100 percent_done, 
 100 - ((IFNULL(n.numerator,0)/d.denominator) * 100) percent_remaining
-FROM (SELECT b.iteration_id, IFNULL(SUM(a.task_hours_done),1) denominator 
+FROM (SELECT b.iteration_id, IFNULL(SUM(a.task_estimated_duration),1) denominator 
         FROM task a
         INNER JOIN iteration b
         ON b.iteration_id = a.iteration_id
@@ -112,7 +112,7 @@ ON d.iteration_id = n.iteration_id;
 /* Dynamic */
 SELECT (IFNULL(n.numerator,0)/d.denominator) * 100 percent_done, 
 100 - ((IFNULL(n.numerator,0)/d.denominator) * 100) percent_remaining
-FROM (SELECT b.iteration_id, IFNULL(SUM(a.task_hours_done),1) denominator 
+FROM (SELECT b.iteration_id, IFNULL(SUM(a.task_estimated_duration),1) denominator 
         FROM task a
         INNER JOIN iteration b
         ON b.iteration_id = a.iteration_id
