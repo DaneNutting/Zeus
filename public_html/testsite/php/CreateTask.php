@@ -47,7 +47,7 @@
       (select iteration_id from iteration where iteration_name = '$pbiIteration'),
       (select project_id from project where project_name = '$pbiProject'),
       (select pbi_id from backlog_items where pbi_title = '$pbiTitle'),
-      (select user_id from users where concat_ws(' ', user_forename, user_surname) = '$assignee')
+      (select user_id from users2 where concat_ws(' ', user_forename, user_surname) = '$assignee')
       )";
 
     

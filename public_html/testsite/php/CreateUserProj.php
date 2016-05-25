@@ -32,7 +32,7 @@
       (user_id, project_id, role_id)
       VALUES
       ( 
-      (select user_id from users where concat_ws(' ', user_forename, user_surname) = '$user'),
+      (select user_id from users2 where concat_ws(' ', user_forename, user_surname) = '$user'),
       (select project_id from project where project_name = '$project),
       (select user_role_id from user_roles where user_role_description = '$role'))";
     

@@ -22,6 +22,7 @@
   $projectDesc = mysqli_escape_string($conn,$_POST["postedDesc"]);
   $projectEnd = $_POST["postedEnd"];
   $projectStart = $_POST["postedStart"];
+  $projectLead = $_POST["postedLead"];
   
   //Check for a Null project name coming from the front end and throw and error 
   if($projectName == null || $projectName == ""){ 
@@ -31,12 +32,13 @@
   //Query to insert a project based on the ID of that project
     $query = 
       "INSERT INT0 project
-      (project_name, project_description, project_deadline, project_start_date)
+      (project_name, project_description, project_deadline, project_start_date, project_lead_id)
       VALUES
       ('$projectName', 
       '$projectDesc', 
       '$projectEnd', 
-      '$projectStart)";
+      '$projectStart,
+      (select user_id from users2 where concat_ws(' ', user_forename, user_surname) = '$projectLead'))";
     
     //Run the query and provide feedback on how the parsing went
     if ($conn->query($query) === TRUE) {

@@ -29,7 +29,7 @@
       project_id = (select project_id from project where project_name = '$project),
       role_id = (select user_role_id from user_roles where user_role_description = '$role')
       WHERE 
-      user_id = (select user_id from users where concat_ws(' ', user_forename, user_surname) = '$user')";
+      user_id = (select user_id from users2 where concat_ws(' ', user_forename, user_surname) = '$user')";
     
     //Run the query and provide feedback on how the update went
     if ($conn->query($query) === TRUE) {

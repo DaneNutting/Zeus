@@ -24,7 +24,7 @@
   //Query to delete a user from a project
     $query = 
       "DELETE FROM users_ptojects 
-      WHERE user_id =  (select user_id from users where concat_ws(' ', user_forename, user_surname) = '$user')
+      WHERE user_id =  (select user_id from users2 where concat_ws(' ', user_forename, user_surname) = '$user')
       AND project_id = (select project_id from project where project_name = '$project)
       AND role_id = (select user_role_id from user_roles where user_role_description = '$role')";
     
