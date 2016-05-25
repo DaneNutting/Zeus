@@ -51,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `project` (
   `project_description` varchar(200) DEFAULT NULL,
   `project_deadline` date DEFAULT NULL,
   `project_start_date` date DEFAULT NULL,
-  `org_id` int(11) DEFAULT NULL
+  `org_id` int(10) DEFAULT NULL,
+  'project_lead_id' int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `project_note` (
@@ -254,7 +255,8 @@ ALTER TABLE iteration_note
 ADD FOREIGN KEY (iteration_id) REFERENCES iteration (iteration_id);
 
 ALTER TABLE project
-ADD FOREIGN KEY (org_id) REFERENCES organisation (org_id);
+ADD FOREIGN KEY (org_id) REFERENCES organisation (org_id),
+ADD FOREIGN KEY (project_lead_id) REFERENCES users2 (user_id);
 
 ALTER TABLE project_note
 ADD FOREIGN KEY (project_id) REFERENCES project (project_id);
