@@ -118,7 +118,7 @@ FROM (SELECT b.iteration_id, IFNULL(SUM(a.task_estimated_duration),1) denominato
         ON b.iteration_id = a.iteration_id
         WHERE b.iteration_start_date <= CURDATE()
         AND b.iteration_end_date >= CURDATE()
-        AND a.assignee = '".$_SESSION['SESS_USER_ID']."'
+        AND a.assignee = '".$_SESSION['SESS_MEMBER_ID']."'
         AND a.project_id = '".$_SESSION['SESS_PROJECT_ID']."') d
 LEFT OUTER JOIN 
        (SELECT b.iteration_id, SUM(a.task_hours_done) numerator
@@ -128,6 +128,6 @@ LEFT OUTER JOIN
         WHERE b.iteration_start_date <= CURDATE()
         AND b.iteration_end_date >= CURDATE()
         AND a.state_id = 10
-        AND a.assignee = '".$_SESSION['SESS_USER_ID']."'
+        AND a.assignee = '".$_SESSION['SESS_MEMBER_ID']."'
         AND a.project_id = '".$_SESSION['SESS_PROJECT_ID']."') n
 ON d.iteration_id = n.iteration_id;
