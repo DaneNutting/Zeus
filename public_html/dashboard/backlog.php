@@ -1,7 +1,5 @@
 <?php
-	//require_once($_SERVER['DOCUMENT_ROOT'] . '/login_system/auth.php' );
   require_once('../login_system/auth.php');
-  //include("protect.php");
 ?>
 
 <!doctype html>
@@ -13,18 +11,12 @@
 <meta name="keywords" content="Zeus agile project management.">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-<link rel="shortcut icon" href="../images/ico/favicon.ico">
-<!--<link rel="stylesheet" href="../chartist-js-master/dist/chartist.min.css">-->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-<!--<link rel="stylesheet" href="../chartist-js-master/site/styles/main.scss">-->
+<link rel="shortcut icon" href="../images/ico/favicon.ico"></link>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'></link>
 <link rel="stylesheet" href="../css/popupstyle.css"></link>
-<!--<link rel="stylesheet" href="../css/graphstyle.css"></link>-->
-<!--<link rel="stylesheet" href="../css/signup.css"></link>	 -->
-<link rel="stylesheet" href="../css/dashboardStyle.css">
+<link rel="stylesheet" href="../css/dashboardStyle.css"></link>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!--<script src="../js/scroll.js"></script>
-<script src="../js/ClickOnClass.js"></script>-->
 <script src="../js/searchPBIs.js"></script>
 <script src="../js/createPBI.js"></script>
 <script src="../js/deletePBI.js"></script>

@@ -1,0 +1,457 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    overflow-x: hidden;
+}
+
+.navigation {
+    list-style: none;
+    background-color: #ec704e;
+	
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+	display: none;
+}
+
+.navigation li a {
+	
+	color: white;
+	width: 100%;
+	height: 50px;
+	display: block;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 40px;
+	border-bottom: solid 2px #EA6642;
+	
+}
+
+.site-wrap {
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #fff;
+    position: relative;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.nav-trigger {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+	display: none;
+}
+
+label[for="nav-trigger"] {
+    position: fixed;
+    top: 13px;
+    left: 15px;
+    z-index: 2;
+	color: white;
+	font-size: 35px;
+    cursor: pointer;
+	display: none;
+	-webkit-transform:scale(1.3, 1.0);
+	-moz-transform:scale(1.3, 1.0);
+	-ms-transform:scale(1.3, 1.0);
+	-o-transform:scale(1.3, 1.0);
+	transform:scale(1.3,1.0);
+}
+
+.nav-trigger:checked + label {
+    left: 215px;
+}
+
+.nav-trigger:checked ~ .site-wrap {
+    left: 200px;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+
+.nav-trigger:checked ~ .site-wrap #topNav #leftNav {
+    	
+		position: fixed;
+		left: 200px;
+		
+	
+}
+
+.nav-trigger + label, .site-wrap, #leftNav {
+    transition: left 0.2s;
+}
+
+.pbiDetailsForm input {
+	
+	width: auto;
+	
+}
+
+#pbiSearchResultsDiv {
+	
+	margin-top: 40px;	
+	
+}
+
+.pbiDetailsForm #formHeader {
+	
+	padding-top: 40px;
+	padding-bottom: 40px;	
+	
+}
+
+.pbiDetailsForm #formHeader img {
+	
+	width: 70px;
+	vertical-align:top;
+	
+}
+
+#pbiDetailsTitle {
+	
+	display: inline-block;	
+	
+}
+
+.pbiDetailsHeadings {
+	
+	padding: 0px;
+	color: #424242;
+	font-weight: 400;	
+	
+}
+
+.pbiDetailsTitleSec {
+	
+	margin-bottom: 10px;	
+	
+}
+
+.pbiDetailsForm #formHeader #pbiDetailsTitle input {
+	
+	border: none;
+	
+}
+
+.pbiDetailsForm #formHeader #pbiDetailsTitle .pbiDetailsTitleSec label {
+	
+	display: inline-block;
+	width: 80px;	
+	
+}
+
+.pbiDetailsForm #formHeader #pbiDetailsTitle .pbiDetailsTitleSec #taskTitle {
+	
+	font-size: 30px;
+	overflow: visible;	
+	font-weight: 200;
+	
+}
+
+#taskTitleCont label {
+	
+	font-size: 25px;
+	
+}
+
+.pbiDetailsForm #formHeader #pbiDetailsTitle .pbiDetailsTitleSec #pbiTitle {
+	
+	font-size: 20px;
+	overflow: visible;	
+	font-weight: 200;
+	color: #909090;
+}
+
+
+#pbiDetailsButtons {
+	
+	float: right;	
+	
+}
+
+#pbiDetailsSubLeft {
+	
+	width: 60%;
+	float: left;
+	display: inline-block;
+	
+}
+
+.pbiDetailsSec {
+	
+	width: 49%;
+	vertical-align: top;
+	display: inline-block;
+	
+}
+
+#pbiDetailsSubLeft h1 {
+	
+	width: 100%!important;
+	display: block!important;
+	border-bottom: 1px solid #ec704e;
+	
+}
+
+#pbiDetailsDetails {
+	
+	margin-bottom: 30px;
+	
+}
+
+
+
+.pbiDetailsDetailsLab {
+	
+	margin-right: 50px;
+	display: inline-block;
+	width: 85px;
+	
+}
+
+.tasksLab {
+	
+	margin-right: 50px;
+	display: inline-block;
+	width: 150px;
+	margin-bottom: 10px;
+	
+}
+
+.tasksDescriptionInputs {
+	
+	width: 100px!important;
+	
+}
+
+#pbiDetailsSubLeft .pbiDetailsSec input {
+	
+	border: none;
+	
+}
+
+#pbiDetailsSubLeft .pbiDetailsSec select {
+	
+	border: none;
+	
+}
+
+#pbiDetailsDescription textarea {
+	
+	margin: 0px;
+	
+}
+
+#pbiDetailsSubLeft textarea {
+	
+	width: 100%;
+	height: 300px;
+	resize: none;
+	border: none;
+	padding: 0px;
+	font-size: 20px;
+	
+}
+
+#pbiDetailsSubRight {
+	
+	width: 35%;
+	float: right;
+	display: inline-block;
+	vertical-align: top;	
+	
+}
+
+#pbiDetailsPersonnel {
+	
+	width: 100%;
+	margin-bottom: 30px;	
+	
+}
+
+#pbiDetailsPersonnel h1 {
+	
+	width: 100%!important;
+	display: block!important;
+	border-bottom: 1px solid #ec704e;
+	
+}
+
+.pbiDetailsPersonelSub {
+	
+	display: inline-block;	
+	
+}
+
+.pbiDetailsPersonelSub input {
+	
+	border: none;	
+	
+}
+
+.pbiDetailsPersonelSub img {
+	
+	height: 22px;
+	
+}
+
+#pbiDetailsDates {
+	
+	width: 100%;	
+	
+}
+
+#pbiDetailsDates h1 {
+	
+	width: 100%!important;
+	display: block!important;
+	border-bottom: 1px solid #ec704e;	
+	
+}
+
+.pbiDetailsDatePerSub {
+	
+	display: block;
+	margin-bottom: 10px;
+	
+}
+
+#pbiDetailsDates .pbiDetailsDatePerSub input {
+	
+	border: none;	
+	
+}
+
+@media screen and (max-width: 1690px) {
+		
+	#pbiDetailsSubLeft input {
+		
+		width: 100px;	
+		
+	}
+	
+	#pbiDetailsSubRight input {
+		
+		width: 100px;	
+		
+	}
+	
+}
+
+@media screen and (max-width: 1300px) {
+	
+#pbiDetailsDetails input {
+	
+	margin-bottom: 30px;	
+	
+}
+
+#pbiDetailsDetails select {
+	
+	margin-bottom: 30px;	
+	
+}
+
+}
+
+@media screen and (max-width:1025px) { 
+	
+	#maincont {
+		
+		padding-top: 60px;	
+		
+	}
+	
+	.navigation {
+		
+		display: block;	
+		
+	}
+	
+	.nav-trigger {
+		
+		display: block;	
+		
+	}
+	
+	label[for="nav-trigger"] {
+		
+		display: block;	
+		
+	}
+
+	#rightNav {
+		
+		display: none;	
+		
+	}
+	
+	#leftNav {
+		
+		display: fixed;
+		padding-left: 0px;
+		top: 0px;
+		left: 0px;
+		text-align: center;
+		height: 50px;
+		width: 100%;
+		background-color: #ec704e;
+		z-index:999;
+		
+	}
+	
+	#leftNav {
+    transition: left 0.2s;
+	}
+
+	
+	
+	
+}
+
+@media screen and (max-width: 670px) {
+	
+	.twoThirdsWidth {
+		
+		padding: 40px;
+		width: 100%;	
+		
+	}
+	
+	#pbiDetailsButtons {
+		
+		float: none;
+		text-align:center;	
+		
+	}
+	
+	#pbiDetailsSubLeft {
+		
+		
+		float: none;
+		display: block;
+		width: 100%;
+		
+	}
+	
+	#pbiDetailsSubRight {
+		
+		float: none;
+		display: block;
+		width: 100%;	
+		
+	}
+	
+	#pbiDetailsSubRight input {
+		
+		width: 200px;	
+		
+	}
+	
+}

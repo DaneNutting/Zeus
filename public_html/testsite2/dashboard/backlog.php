@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="../css/graphstyle.css"></link>
 <!--<link rel="stylesheet" href="../css/signup.css"></link>	 -->
 <link rel="stylesheet" href="../css/dashboardStyle.css">
+<link rel="stylesheet" href="../css/brynley.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="../js/scroll.js"></script>
@@ -46,6 +47,19 @@
 <body>
 
   <div id="wrapper" class="fullwidth clearfix">
+  
+    <ul class="navigation">
+        <li class="nav-item"><a href="../dashboard.php">Home</a></li>
+        <li class="nav-item"><a href="../dashboard/projects.php">Projects</a></li>
+        <li class="nav-item"><a href="../dashboard/sprints.php">Sprints</a></li>
+        <li class="nav-item"><a href="../dashboard/backlog.php">Backlog</a></li>
+        <li class="nav-item"><a href="../dashboard/tasks.php">Tasks</a></li>
+    </ul>
+    
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger">&#9776;</label>
+    
+    <div class="site-wrap">
     
     <div id="topNav" class="fullwidth clearfix">
       <div id="leftNav">
@@ -130,7 +144,6 @@
       
       <div id="content2" class="fullwidth clearfix">
       	<div class="oneThirdWidth">
-          <h1>Results</h1>
           <!--Table of results populated by searching for PBI's based on filters applied from the search bar above-->
           <div id="pbiSearchResultsDiv">
             <table id="pBIResultstable" style="width:100%;">
@@ -144,41 +157,109 @@
         
         <!-- A div containing more in depth information about a selected PBI -->
         <div class = "twoThirdsWidth">
-          <h1>PBI Details</h1>
+          
           <!--<button id ="showCreatePBIForm" class="formbutton">+</button>-->
           <form id="pbiDetails" class="pbiDetailsForm" method="post" action="../js/updatePBIs">
-            <label for="pbiID">ID</label>
+            <header>
+            <img src="../images/ZeusLogo.jpg">
+            <div id="pbiDetailsTitle">
             <input id = "pbiID" readonly required>
-            
-            <label for="pbiTitle">Title</label>
             <input id = "pbiTitle" title="PBI Title">
+            </div>
+            <div id="pbiDetailsButtons">
+            <button type="submit" id="createPBI" value="Create" class="formbutton">Create</button>
+            <button type="submit" id="pbiDetailsButton" value="Update" class="formbutton">Update</button>  
+            <button type="button" id="deletePbiButton" value="Delete" class="formbutton">Delete</button>
+            <button type="reset" id="pbiDetailsResetButton" value="Cancel" class="formbutton">Cancel</button>
+            </div>
+            </header>
             
-            <label for="pbiDescription">Description</label>
-            <textarea id = "pbiDescription"></textarea>
-            
-            <label for="pbiEffort">Effort</label>
-            <input id = "pbiEffort">  
-            
-            <label for="pbiDetailPriority">Priority</label>
+            <div id="pbiDetailsCont">
+            <div id="pbiDetailsSubLeft">
+            <div id="pbiDetailsDetails">
+            <h1 class="pbiDetailsHeadings"> Details </h1>
+            <div class="pbiDetailsSec">
+            <label class="pbiDetailsDetailsLab" for="pbiEffort">Time</label>
+            <input id = "pbiEffort" value="5">  
+            </div>
+            <div class="pbiDetailsSec">
+            <label class="pbiDetailsDetailsLab" for="pbiDetailPriority">Priority</label>
             <select id="pbiDetailPriority">
             </select>
-            
-            <label for="pbiDetailState">State</label>
+            </div>
+            <div class="pbiDetailsSec">
+            <label class="pbiDetailsDetailsLab" for="pbiDetailState">State</label>
             <select id = "pbiDetailState">
             </select>
-            
-            <label for="pbiIteration">Iteration</label>
+            </div>
+            <div class="pbiDetailsSec">
+            <label class="pbiDetailsDetailsLab" for="pbiIteration">Iteration</label>
             <select id = "pbiIteration">
             </select>
+            </div>
+            </div>
+            <div id="pbiDetailsDescription">
+            <h1 class="pbiDetailsHeadings"> Description </h1>
+            <textarea id = "pbiDescription"></textarea>
+            </div>
+            </div>
             
+            <div id="pbiDetailsSubRight">
+            
+            	<div id="pbiDetailsPersonnel">
+                
+                    <h1 class="pbiDetailsHeadings"> Personnel </h1>
+                    
+                    <div class="pbiDetailsDatePerSub">
+                    <label class="pbiDetailsDetailsLab" for="pbiReporter">Reporter</label>
+                    
+                    <a href="#" class="pbiDetailsPersonelSub">
+                    <img src="../images/placeholder.jpg">
+                    <input id = "pbiReporter" placeholder="Dane Nutting">
+                    </a>
+                    
+                    </div>
+                    
+                    <div class="pbiDetailsDatePerSub">
+                    <label class="pbiDetailsDetailsLab" for="pbiAssignee">Assignee</label>
+                    
+                    <a href="#" class="pbiDetailsPersonelSub">
+                    <img src="../images/placeholder.jpg">
+                    <input id = "pbiAssignee" placeholder="Karl Martin">
+                    </a>
+                     
+                    </div>
+                
+                </div>
+                
+                <div id="pbiDetailsDates">
+                
+                    <h1 class="pbiDetailsHeadings"> Dates </h1>
+                    
+                    <div class="pbiDetailsDatePerSub">
+                    <label class="pbiDetailsDetailsLab" for="pbiCreated">Created</label>
+                    <input id = "pbiCreated" placeholder="10/Jun/15 4:30 PM">
+                    </div>
+                    
+                    <div class="pbiDetailsDatePerSub">
+                    <label class="pbiDetailsDetailsLab" for="pbiUpdated">Updated</label>
+                    <input id = "pbiUpdated" placeholder="13/Sep/15 3:33 PM">
+                    </div>
+                    
+                    <div class="pbiDetailsDatePerSub">
+                    <label class="pbiDetailsDetailsLab" for="pbiCompleted">Completed</label>
+                    <input id = "pbiCompleted" placeholder="13/Sep/15 3:33 PM">  
+					</div>
+                    
+                </div>
+            
+            </div>
+            </div>
             <!--<label for="pbiProject">Project Name</label>
             <select id = "pbiProject">
             </select>-->
             
-            <button type="submit" id="createPBI" value="Create" class="formbutton">Create</button>
-            <button type="submit" id="pbiDetailsButton" value="Update" class="formbutton">Update</button>  
-            <button type="button" id="deletePbiButton" value="Delete" class="formbutton">Delete</button>
-            <button type="reset" id="pbiDetailsResetButton" value="Cancel" class="formbutton">Cancel</button> 
+             
           </form>
           
           <div id="UpdateStatus" style="opacity:0;">
@@ -201,8 +282,20 @@
     <div id="footer" class="fullwidth clearfix">
     	<p> footer</div>
     </div>
-  
   </div>
+  
+<script>
 
+function resizeInput() {
+    $(this).attr('size', $(this).val().length);
+}
+
+$('input[type="text"]')
+    // event handler
+    .keyup(resizeInput)
+    // resize on page load
+    .each(resizeInput);
+
+</script>
 </body>
 </html>

@@ -49,7 +49,7 @@
       (select iteration_id from iteration where iteration_name = '$pbiIteration' and project_id = '$pbiProject'),
       '$pbiProject',
       (select pbi_id from backlog_items where pbi_title = '$pbiTitle'),
-      (select user_id from users where concat_ws(' ', user_forename, user_surname) = '$assignee')
+      (select user_id from users2 where concat_ws(' ', user_forename, user_surname) = '$assignee')
       )";
     
     //Run the query and provide feedback on how the update went

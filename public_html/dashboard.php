@@ -26,7 +26,7 @@
 <script src="chartist-js-master/dist/chartist.min.js"></script>
 <script src="js/min/chartistGraph.js"></script> 
 <script src="js/min/pbiData.js"></script>
-<script src="js/min/chartistPies.js"></script>
+<script src="js/chartistPies.js"></script>
 <!--<script src="./js/all.js"></script>  -->
 
 <!-- Google Analytics code, need to add this to all pages!-->
@@ -108,8 +108,8 @@
       
       <div id="content2" class="fullwidth clearfix">
         <div id="pieContainer1" class="ct-chart pieContainer"> <h1>Effort Done</h1> </div>
-        <div id="pieContainer2" class="ct-chart pieContainer"></div>
-        <div id="pieContainer3" class="ct-chart pieContainer"></div>
+        <div id="pieContainer2" class="ct-chart pieContainer"> <h1>Hours Complete</h1> </div>
+        <div id="pieContainer3" class="ct-chart pieContainer"> <h1>Your Hours Complete</h1> </div>
       </div>
       
       <div id="content3" class="fullwidth clearfix">
