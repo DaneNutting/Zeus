@@ -78,7 +78,7 @@
 			@mysqli_free_result($result);
 		}
 		else {
-			die("Query failed");
+			exit("Error code ({$conn->errno}): {$conn->error}");
 		}
 	}
 	
@@ -91,7 +91,7 @@
 	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO users2 (user_forename, user_surname, user_email, user_password, user_role_id) VALUES('$user_forename','$user_surname','$user_email','$encrypt_pass', '2')";
+	$qry = "INSERT INTO users2 (user_forename, user_surname, user_email, user_password) VALUES('$user_forename','$user_surname','$user_email','$encrypt_pass')";
 	$result = mysqli_query($conn, $qry);
 	
 	//Check whether the query was successful or not
