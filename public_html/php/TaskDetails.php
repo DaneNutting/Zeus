@@ -18,7 +18,7 @@
      f.pbi_title 'pbi_title'
             FROM  task a
             left outer join iteration b on b.iteration_ID = a.iteration_ID
-            left outer join users c on c.user_id = a.assignee
+            left outer join users2 c on c.user_id = a.assignee
             left outer join states d on d.state_id = a.state_id
             left outer join project e on e.project_id = a.project_id
             left outer join backlog_items f on f.pbi_id = a.pbi_id 

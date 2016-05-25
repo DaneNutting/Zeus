@@ -38,7 +38,7 @@
         inner join backlog_items b on b.pbi_id = a.pbi_id
         inner join priority c on c.priority_id = b.priority_id
         inner join states d on d.state_id = a.state_id
-        inner join users f on f.user_id = a.assignee
+        inner join users2 f on f.user_id = a.assignee
         where  a.iteration_id = '$SprintID'
         ORDER BY a.pbi_id";     
   

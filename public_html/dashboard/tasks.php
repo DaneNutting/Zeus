@@ -52,39 +52,19 @@
       <div id="leftNav">
         <a href ="../dashboard.php">  
           <span id="cloudicon"><img src="../images/full_white_logo.svg" alt="Zeus agile project management logo" ></span>
-            <h1>Zeus</h1>
+            <h1>Dashboard</h1>
         </a>    
       </div>
       <div id="rightNav">
         <ul>
-          <li>Projects
-            <ul>
-              <li>Zeus</li>
-              <li>Project Atlas</li>
-              <li><a href ="../dashboard/projects.php">All Projects</a></li>
-            </ul>
-          </li>  
-          <li>Sprints
-            <ul>
-              <li>Zeus - Sprint 14</li>
-              <li>Atlas - Sprint 5</li>
-              <li><a href ="../dashboard/sprints.php">All Sprints</a></li>
-            </ul>
-          </li>  
-          <li>Backlog
-            <ul>
-              <li>Zeus - PBI 112</li>
-              <li>Atlas - PBI 74</li>
-              <li><a href ="../dashboard/backlog.php">Product Backlog</a></li>
-            </ul>
-          </li>
-          <li>Tasks
-            <ul>
-                <li>Atlas - Task 32</li>
-                <li>Zeus - Task 8</li>
-                <li><a href ="../dashboard/tasks.php">All Tasks</a></li>
-              </ul>
-          </li>
+          <a href ="../dashboard/projects.php"><li>Projects
+          </li></a>  
+          <a href ="../dashboard/sprints.php"><li>Sprints
+          </li></a>  
+          <a href ="../dashboard/backlog.php"><li>Backlog
+          </li></a>
+          <a href ="../dashboard/tasks.php"><li>Tasks
+          </li></a>
         </ul>
       </div>
         
@@ -200,7 +180,6 @@
     <!-- Popup Div Ends Here -->
     
     <div id="footer" class="fullwidth clearfix">
-    	<p> footer</div>
     </div>
   
   </div>

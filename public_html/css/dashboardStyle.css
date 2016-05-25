@@ -713,6 +713,46 @@ tr{
     left:50%;
     transform: translate(-50%,-50%);
 	padding:0px;
+	text-align: center;
+}
+
+#projectContent{
+	width: 90%;
+	margin:0 auto;
+	background:#fff;
+	border-bottom: 1px solid #ec704e;
+	padding: 20px 0px 0px 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.project{
+	width:365px;
+	height:225px;
+	flex: 0 0 auto;
+	border: 1px solid #ec704e;
+	margin:0px 10px 20px 10px;
+	position: relative;
+}
+
+.project h1{
+	font-weight: 500;
+}
+
+.project p{
+	margin: 0px 10px;
+}
+
+.project h2{
+	position:absolute;
+	bottom: 0px;
+}
+
+.project img{
+	width:50px;
+	margin:10px 0px 0px 10px;
+	vertical-align: bottom;
 }
 
 /* ==================================================
@@ -795,6 +835,10 @@ tr{
 	.ct-chart .ct-point{
 		stroke-width: 8px;
 	}
+	
+	#projectContent{
+		justify-content: center;
+	}	
 	
 }
 

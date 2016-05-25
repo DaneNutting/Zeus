@@ -46,39 +46,26 @@
     
     <div id="topNav" class="fullwidth clearfix">
       <div id="leftNav">
-    	<span id="cloudicon"><img src="images/full_white_logo.svg" alt="Zeus agile project management logo" ></span>
-        <h1>Zeus</h1>
+        <a href ="../dashboard.php">
+    	    <span id="cloudicon"><img src="images/full_white_logo.svg" alt="Zeus agile project management logo" ></span>
+          <h1>Dashboard</h1>
+        </a>
       </div>
       <div id="rightNav">
         <ul>
-          <li>Projects
-            <ul>
+          <a href ="../dashboard/projects.php"><li>Projects
+            <!--<ul>
               <li>Zeus</li>
               <li>Project Atlas</li>
               <li><a href ="../dashboard/projects.php">All Projects</a></li>
-            </ul>
-          </li>  
-          <li>Sprints
-            <ul>
-              <li>Zeus - Sprint 14</li>
-              <li>Atlas - Sprint 5</li>
-              <li><a href ="../dashboard/sprints.php">All Sprints</a></li>
-            </ul>
-          </li>  
-          <li>Backlog
-            <ul>
-              <li>Zeus - PBI 112</li>
-              <li>Atlas - PBI 74</li>
-              <li><a href ="../dashboard/backlog.php">Product Backlog</a></li>
-            </ul>
-          </li>
-          <li>Tasks
-            <ul>
-                <li>Atlas - Task 32</li>
-                <li>Zeus - Task 8</li>
-                <li><a href ="../dashboard/tasks.php">All Tasks</a></li>
-              </ul>
-          </li>
+            </ul>-->
+          </li></a>  
+          <a href ="../dashboard/sprints.php"><li>Sprints
+          </li></a>  
+          <a href ="../dashboard/backlog.php"><li>Backlog
+          </li></a>
+          <a href ="../dashboard/tasks.php"><li>Tasks
+          </li></a>
         </ul>
       </div>
         
@@ -108,8 +95,8 @@
       
       <div id="content2" class="fullwidth clearfix">
         <div id="pieContainer1" class="ct-chart pieContainer"> <h1>Effort Done</h1> </div>
-        <div id="pieContainer2" class="ct-chart pieContainer"> <h1>Hours Complete</h1> </div>
-        <div id="pieContainer3" class="ct-chart pieContainer"> <h1>Your Hours Complete</h1> </div>
+        <div id="pieContainer2" class="ct-chart pieContainer"> <h1>Sprint Hours Complete</h1> </div>
+        <div id="pieContainer3" class="ct-chart pieContainer"> <h1>Personal Hours Complete</h1> </div>
       </div>
       
       <div id="content3" class="fullwidth clearfix">
@@ -150,7 +137,6 @@
     <!--</div>-->
 
     <div id="footer" class="fullwidth clearfix">
-    	<p> footer</div>
     </div>
   
   </div>

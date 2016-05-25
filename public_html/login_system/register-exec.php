@@ -99,7 +99,7 @@
 		header("location: register-success.php");
 		exit();
 	}else {
-		die("Query failed");
+		exit("Error code ({$conn->errno}): {$conn->error}");
 	}
 	
 	$conn->close();

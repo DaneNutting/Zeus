@@ -110,8 +110,8 @@ function createPies(results){
   })
   
   $.each(pie2Array, function (key, value){
-    pie2Data.push(parseInt(value.projectHoursRem));
     pie2Data.push(parseInt(value.projectHoursDone));
+    pie2Data.push(parseInt(value.projectHoursRem));
   })
   
   $.each(pie3Array, function (key, value){
@@ -119,7 +119,7 @@ function createPies(results){
     pie3Data.push(parseInt(value.userHoursRem));
   })
   
-  console.log(pie1Array, pie2Array, pie3Array,pie1Data,pie2Data,pie3Data);
+  //console.log(pie1Array, pie2Array, pie3Array,pie1Data,pie2Data,pie3Data);
   
   //console.log(pie1);
   
