@@ -18,6 +18,7 @@
   $projectDesc = mysqli_escape_string($conn,$_POST["postedDesc"]);
   $projectEnd = $_POST["postedEnd"];
   $projectStart = $_POST["postedStart"];
+    $projectLead = $_POST["postedLead"];
   //$pbiProject = $_POST["postedProject"];
   
   //Check for a Null pbiID coming from the front end and throw and error 
@@ -32,11 +33,12 @@
       project_description = '$projectDesc',
       project_deadline = $projectEnd,
       project_start_date = $projectStart,
+      project_lead_id = (select user_id from users2 where concat_ws(' ', user_forename, user_surname) = '$projectLead')
       WHERE project_id = '$projectId'";
     
     //Run the query and provide feedback on how the update went
     if ($conn->query($query) === TRUE) {
-    //     echo "PBI Updated successfully";
+    //     echo "Project Updated successfully";
     } else {
     //     echo "Error: " . $query . "<br>" . $conn->error;
     }
