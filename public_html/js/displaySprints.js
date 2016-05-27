@@ -87,7 +87,7 @@ function populateSprints(results) {
 		var PbiResults = [];
 		var TaskResults = [];
 		var board = $('#board');
-
+		var sprintHasWorkItems;
 		//Process the results of the query based on the parameters supplied from drop down box
 		
 		$.each(results, function (key, value){
@@ -95,10 +95,6 @@ function populateSprints(results) {
 			PbiResults = value[1];
 			TaskResults = value[2];
 		});
-		
-		//console.log(SprintResults);
-		//console.log(PbiResults);
-		//console.log(TaskResults);
 		
 		$.each(SprintResults, function (key, value) {
 			var a = value.itID;
@@ -128,42 +124,22 @@ function populateSprints(results) {
                 //Cast the iteration dates from the results of the query to dates
                 var itStartDate = new Date(iterationStart[i]);
 				var itEndDate = new Date(iterationEnd[i]);
-                // var itStartDate = new Date(iterationStartReadable[i]);
-				// var itEndDate = new Date(iterationEndReadable[i]);
                 var itStartDateTitle = iterationStartReadable[i];
 				var itEndDateTitle = iterationEndReadable[i];
-                
-                // console.log(date);
-                // console.log(itStartDate);
-                // console.log(itEndDate);
 			
                 //To show the current sprint find the sprint date 
                 if (itStartDate <= date && itEndDate >= date) {
                     $("#sprintsTable").append('<tr class="PBI">' +
-                        '<td style="display:none">' + iterationID[i] + '</td>' +
-                        '<td>' + iterationName[i] + '</td>' +
+                        '<td style="display:none;">' + iterationID[i] + '</td>' +
+                        '<td style="position:relative;">' + iterationName[i] + '<img src="../images/edit.svg" class="editSprint">'+'<img src="../images/garbage.svg" class="deleteSprint">'+'</td>' +
                         '</tr>');
 					$("h1", ".twoThirdsWidth").append(iterationName[i]);
-					//$("h2", ".twoThirdsWidth").append("Sprint Start:" + itStartDate.toDateString() + "     " + "Sprint End:" + itEndDate.toDateString());
 					$("h2", ".twoThirdsWidth").append("Sprint Start: " + itStartDateTitle);	
 					$("h3", ".twoThirdsWidth").append("Sprint End: " + itEndDateTitle);
                 }
-                // else{
-                //     if (itStartDate <= date) {console.log(iterationName[i] + " start date in the past " + itStartDate.toDateString())}
-                //     else{console.log(iterationName[i] + " start date in the future "+ itStartDate.toDateString())};
-                    
-                //     if(itEndDate >= date) {console.log(iterationName[i] + " expiry date is in the future " + itEndDate.toDateString())}
-                //     else {console.log(iterationName[i] + " expiry date in past " + itEndDate.toDateString())};
-                    
-                //     var start = new Date("Wed Feb 17 2016");
-                //     var end = new Date("Tue Mar 01 2016");
-                //     if (start < end) {"start date before todays date"}
-                //     else{console.log("Nope " + start.toDateString() + ' ' + end.toDateString())};
-                // };
 				
             };
         }
-        
         //If a paramter was passed in the URL then the below needs to happen to show the correct sprint in the left hand sprint table
         else {
             // a new array is needed to store sprint names without their project prefix
@@ -203,8 +179,11 @@ function populateSprints(results) {
 				'</div>'
 				);
 			});
+			sprintHasWorkItems = 1;
+			//console.log(sprintHasWorkItems);
 		}
 		catch (error) {
+			sprintHasWorkItems = 0;
 		//console.log("caught null array");
 		}
 		
@@ -314,6 +293,22 @@ function populateSprints(results) {
 		catch (error) {
 		//console.log("caught null array");
 		}
+		
+		//listen for edit icon on each sprint row being clicked
+		$(".editSprint").click(function(e) {
+			e.preventDefault();	
+			e.stopPropagation();
+			console.log('edit clicked');
+		});
+		
+		//listen for delete icon on each sprint row being clicked
+		$(".deleteSprint").click(function(e) {
+			e.preventDefault();	
+			e.stopPropagation();
+			var sprintID = e.target.parentNode.parentNode.firstChild.textContent;
+			deleteSprint(sprintID,sprintHasWorkItems);
+		});
+		
 		//Wait for the current sprint tab to be clicked and show any current sprints
 		$("#currentSprints").click(function(e) {
         e.preventDefault();	
@@ -344,13 +339,11 @@ function populateSprints(results) {
 				if(itEndDate >= date && itStartDate < date){
 					$("#sprintsTable").append('<tr class="PBI">'+
 					'<td style="display:none">'+ iterationID[i] +'</td>'+
-					'<td>'+ iterationName[i] +'</td>'+
+					'<td style="position:relative;">' + iterationName[i] + '<img src="../images/edit.svg" class="editSprint">'+'<img src="../images/garbage.svg" class="deleteSprint">'+'</td>' +
 					'</tr>');
 				};
 			};
-			
 			showSprintData();
-				
 		});
 		
 		//Wait for the previous sprints tab to be clicked and show any previous sprints	
@@ -382,7 +375,7 @@ function populateSprints(results) {
 				if(itEndDate < date){
 					$("#sprintsTable").append('<tr class="PBI">'+
 					'<td style="display:none">'+ iterationID[i] +'</td>'+
-					'<td>'+ iterationName[i] +'</td>'+
+					'<td style="position:relative;">' + iterationName[i] + '<img src="../images/edit.svg" class="editSprint">'+'<img src="../images/garbage.svg" class="deleteSprint">'+'</td>' +
 					'</tr>');
 				};
 			};
@@ -420,7 +413,7 @@ function populateSprints(results) {
 				if(itStartDate > date){
 					$("#sprintsTable").append('<tr class="PBI">'+
 					'<td style="display:none">'+ iterationID[i] +'</td>'+
-					'<td>'+ iterationName[i] +'</td>'+
+					'<td style="position:relative;">' + iterationName[i] + '<img src="../images/edit.svg" class="editSprint">'+'<img src="../images/garbage.svg" class="deleteSprint">'+'</td>' +
 					'</tr>');
 				};
 			};
@@ -432,10 +425,26 @@ function populateSprints(results) {
 		//function to display PBI's based on selected Sprint
 		function showSprintData(){
 			
+			//listen for edit icon on each sprint row being clicked
+			$(".editSprint").click(function(e) {
+				e.preventDefault();	
+				e.stopPropagation();
+				console.log('edit clicked');
+			});
+			
+			//listen for delete icon on each sprint row being clicked
+			$(".deleteSprint").click(function(e) {
+				e.preventDefault();	
+				e.stopPropagation();
+				//console.log('delete clicked');
+				var sprintID = e.target.parentNode.parentNode.firstChild.textContent;
+				deleteSprint(sprintID,sprintHasWorkItems);
+			});
+			
 			//Wait for a sprint to be clicked on and when it is get the ID of that sprint so that more details can be shown about that PBI
-			$(".PBI").click(function(e) {
+			$(".PBI").bind('click',function(e) {
 				e.preventDefault();
-				
+				//console.log('pbi');
 				//This looks at the parent row of the cell being clicked on and gets the first child of that row which will always be the ID
 				clickedSprintID = e.target.parentNode.firstChild.textContent;
 	
@@ -502,9 +511,13 @@ function populateSprints(results) {
 						'</div>'
 						);
 					});
+					sprintHasWorkItems = 1;
+					//console.log(sprintHasWorkItems);
 				}
 				catch (error) {
-				//console.log("caught null task array");
+					sprintHasWorkItems = 0;
+					//console.log(sprintHasWorkItems);
+					//console.log("caught null task array");
 				}
 				
 				try {
@@ -606,21 +619,9 @@ function populateSprints(results) {
         $('.PBIResult').dblclick(function(e){
             location = "./backlog.php?PBIId=" + this.id
         })
-        
-    //var taskTile = document.getElementById('Task175');
     
+	//work to make the kanban work on mobile devices 
     var taskTile = document.getElementsByClassName('Task');
-    
-    // taskTile.addEventListener('touchmove', function(event){
-    //     var touch = event.targetTouches[0];
-    //     console.log(touch.pageX);
-    //     console.log(touch.pageY);
-    // },false);
-    
-    // var myFunction = function() {
-    // var attribute = this.getAttribute("data-myattribute");
-    // alert(attribute);
-    // };
 
     for (var i = 0; i < taskTile.length; i++) {
         taskTile[i].addEventListener('touchmove', function(event){
@@ -696,6 +697,7 @@ function dragAndDrop(){
 				}
 			};
 		});
+		
 };
 
 /** AJAX called by the drag functions above */
@@ -724,5 +726,73 @@ function changeTaskState(stateID,taskName){
 		}
 	});
 	
+}
+
+//function called from above to delete a sprint
+function deleteSprint(sprintID,sprintOkToDelete){
+	//console.log(sprintID);
+	$("#popupFormContainer").remove();
+	$("#greyOut").velocity("transition.fadeIn")
+	.velocity({opacity:0.9});
+	$("#popupContact").velocity("transition.bounceDownIn")
+	.velocity({opacity:1});
+	
+	if (sprintOkToDelete === 1) {
+		$("#popupContact").prepend('<img id="msgImg" src="../images/query.svg" /> <h1 id="msgH1">Sorry you cannot delete this Sprint its has Work Items associated with it.</h1> <br> <a href="#" id="msgClose">Ok</a>');
+	}
+	else{
+		$("#popupContact").prepend('<img id="msgImg" src="../images/query.svg" /> <h1 id="msgH1">Are you sure you want to delete this Sprint?</h1> <br> <a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a>');
+	};
+	$("#msgClose").click(function(e) {
+		e.preventDefault();
+		$("#popupContact").velocity("transition.bounceUpOut");
+		$("#greyOut").velocity("transition.fadeOut",{delay:200});
+		$("#msgImg").remove();
+		$("#msgH1").remove();
+		$("#msgClose").remove();
+		$("#confirmButton").remove();			
+	});
+		
+	$("#confirmButton").click(function(e) {
+		e.preventDefault();
+		$("#msgImg").remove();
+		$("#msgH1").remove();
+		$("#msgClose").remove();
+		$("#confirmButton").remove();
+		
+		//Ajax request to update the current PBI with whatever new value has been entered in to the form
+		$.ajax({
+			type: "POST",
+			url: "../php/DeleteSprint.php",
+			data: {
+				postedID:sprintID,
+			},
+			success: function(results) {
+				$("#popupContact").prepend('<img id="msgImg" src="../images/tick.svg" /> <h1 id="msgH1">Your sprint was successfully deleted!</h1> <br> <a href="#" id="msgClose">Ok</a>');
+				//Close popup div and remove elements from the div so they don't stack up on each other
+				$("#msgClose").click(function(e) {
+					e.preventDefault();
+					$("#popupContact").velocity("transition.bounceUpOut");
+					$("#greyOut").velocity("transition.fadeOut",{delay:200});
+					$("#msgImg").remove();
+					$("#msgH1").remove();
+					$("#msgClose").remove();			
+				});
+			},
+			error: function(results) {
+				$("#popupContact").prepend('<img id="msgImg" src="../images/cross.svg" /> <h1 id="msgH1">Sorry we could not delete your sprint.</h1> <br> <a href="#" id="msgClose">Ok</a>');
+				
+				//Close popup div and remove elements from the div so they don't stack up on each other$("#msgClose").click(function(e) {
+				$("#msgClose").click(function(e) {
+					e.preventDefault();
+					$("#popupContact").velocity("transition.bounceUpOut");
+					$("#greyOut").velocity("transition.fadeOut",{delay:200});
+					$("#msgImg").remove();
+					$("#msgH1").remove();
+					$("#msgClose").remove();			
+				});
+			}
+		});
+	});
 }
 

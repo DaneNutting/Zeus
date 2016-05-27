@@ -693,6 +693,18 @@ td{
 	padding: 10px;
    	font-size: 90%;
 }
+td img{
+	max-height: 20px;
+	max-width: 20px;
+	position:absolute;
+	top:15px;
+	right:10px;
+}
+
+.editSprint{
+	top:15px;
+	right:35px;
+}
 
  th {
    background-color: #ec704e;

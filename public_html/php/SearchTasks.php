@@ -33,7 +33,7 @@
      $sprintWhere = " like '%'";
    }
    else{
-     $sprintWhere = " = (select iteration_id from iteration where iteration_name = '$sprint')";
+     $sprintWhere = " = (select iteration_id from iteration where iteration_name = '$sprint' and project_id = '".$_SESSION['SESS_PROJECT_ID']."')";
    }
    
    if ($state == 'Any' || empty($state)){

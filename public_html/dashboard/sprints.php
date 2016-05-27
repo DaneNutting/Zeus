@@ -123,7 +123,7 @@
           <img id="msgImg" src="../images/tick.svg" /> <h1 id="msgH1">Sprint was successfully created!</h1> <br> <a href="#" id="msgClose">OK</a>
         </div>-->
         
-        <div id="popupFormContainer">
+        <!--<div id="popupFormContainer">
           <h1>Create Sprint</h1>
           <form id="SprintCreateForm" class="pbiDetailsForm" method="post" action="../js/updatePBIs">
             <div class="createSprintForm">
@@ -145,7 +145,7 @@
           <div class="createSprintYesNo">
             <a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a>
           </div>
-        </div>   
+        </div>   -->
       </div>
     <!-- Popup Div Ends Here -->
     

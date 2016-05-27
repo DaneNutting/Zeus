@@ -12,6 +12,12 @@
 		e.preventDefault();
 		
 		//grey out the screen and show a "pop up" with a form using velocity 
+		$("#popupContact").prepend(
+			'<div id="popupFormContainer"><h1>Create Sprint</h1><form id="SprintCreateForm" class="pbiDetailsForm" method="post" action="../js/updatePBIs"><div class="createSprintForm"><label for="sprintName">Title</label><input id = "sprintName" title="sprintName"></div>'+ 
+            '<div class="createSprintForm"><label for="startDate">Start Date</label><input id = "startDate" title="startDate" type="date"></div>'+
+            '<div class="createSprintForm"><label for="endDate">End Date</label><input id = "endDate" title="endDate" type="date"></div></form>'+          
+          	'<div class="createSprintYesNo"><a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a></div></div></div>'
+		)
 		$("#popupFormContainer").show();
 		$("#greyOut").velocity("transition.fadeIn")
 		.velocity({opacity:0.9});
