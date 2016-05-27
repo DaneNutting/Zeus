@@ -1,6 +1,9 @@
 <?php
   // Connecting to the MySQL server
   include('DatabaseCon.php');
+  
+  //Start session
+  session_start();
     
   // Create connection
   $conn = new mysqli($host, $user_name, $pwd, $dbName);
@@ -19,6 +22,7 @@
             inner join project e on e.project_id = a.project_id
             where b.iteration_start_date <= DATE_FORMAT(sysdate(), '%Y-%m-%d') 
             and b.iteration_end_date >= DATE_FORMAT(sysdate(), '%Y-%m-%d')
+            and a.project_id = '".$_SESSION['SESS_PROJECT_ID']."'
             ORDER BY a.state_id";
 
   $result = $conn->query($query) or exit("Error code ({$conn->errno}): {$conn->error}");

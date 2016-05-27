@@ -24,7 +24,7 @@
 <!--<script src="js/velocity.js"></script>
 <script src="js/velocity.ui.js"></script>-->
 <script src="chartist-js-master/dist/chartist.min.js"></script>
-<script src="js/min/chartistGraph.js"></script> 
+<script src="js/chartistGraph.js"></script> 
 <script src="js/min/pbiData.js"></script>
 <script src="js/chartistPies.js"></script>
 <!--<script src="./js/all.js"></script>  -->

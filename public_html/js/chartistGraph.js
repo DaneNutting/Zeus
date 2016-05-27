@@ -40,7 +40,6 @@
                 xlabBar.push(label);
                 noOfSprints++ ;               
 	            });
-                //console.log(xlab);
            
            //get each iteration effort total from the JSON array and check for nulls.
            //nulls will skew graph data 
@@ -52,7 +51,6 @@
                     totalEffort.push(tEff);
                 }                   
 	            });
-                //console.log(totalEffort);
                 
            //get each iteration effort remaining from the JSON array and check for nulls.
            //nulls will skew graph data     
@@ -64,15 +62,13 @@
                     remainingEffort.push(rEff);
                }                
 	           });
-                //console.log(remainingEffort);
             
             //get each iteration effort done from the JSON array.
             $.each(phpArray, function (key, value) {
                 var comeff = value.effCom;
                 effortcommitted.push(comeff);                
 	            });
-                 //console.log(effortcommitted);
-                 //console.log(noOfSprints);
+                
 /*================================================================================================================*/
 /*================================================================================================================*/
 //Create the line graph
@@ -89,12 +85,9 @@
 	            ]
 	        };
 
-	        // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
-	        // as you saw in the previous example
 	        var options = {
-	            low: 0,
-                //onlyInteger: true
-                axisY: {
+	            low: 50,
+                axisY:{
                     onlyInteger: true
                 }
 	        };
@@ -139,6 +132,10 @@
             //options to use when with smaller screens    
 	        var responsiveOptionsForMoreThanTenSprints = [
               ['screen and (min-width: 501px) and (max-width: 5000px)', {
+                  low: 0,
+                  axisY:{
+                    onlyInteger: true
+                  },
                   //showPoint: false,
                   axisX: {
                       labelInterpolationFnc: function (value) {
@@ -176,10 +173,10 @@
             //create the burndown line graph
             //find out how many labels there are on the x-axis, if there are more than 10 use a different set of options to create the graph
             if(noOfSprints >10){
-                var chart = new Chartist.Line('#chart1', data, options, responsiveOptionsForMoreThanTenSprints);
+                var chart = new Chartist.Line('#chart1', data, null, responsiveOptionsForMoreThanTenSprints);
             }
             else{
-                var chart = new Chartist.Line('#chart1', data, options, responsiveOptions);
+                var chart = new Chartist.Line('#chart1', data, null, responsiveOptions);
             }
 	        
 	        var seq = 0,
