@@ -298,7 +298,11 @@ function populateSprints(results) {
 		$(".editSprint").click(function(e) {
 			e.preventDefault();	
 			e.stopPropagation();
-			console.log('edit clicked');
+			var sprintID = e.target.parentNode.parentNode.firstChild.textContent;
+			var sprintName = e.target.parentNode.firstChild.textContent;
+			console.log(sprintName);
+			editSprint(sprintID,sprintName);
+			//console.log('edit clicked');
 		});
 		
 		//listen for delete icon on each sprint row being clicked
@@ -430,6 +434,10 @@ function populateSprints(results) {
 				e.preventDefault();	
 				e.stopPropagation();
 				console.log('edit clicked');
+				var sprintID = e.target.parentNode.parentNode.firstChild.textContent;
+				var sprintName = e.target.parentNode.firstChild.textContent;
+				console.log(sprintName);
+				editSprint(sprintID,sprintName);
 			});
 			
 			//listen for delete icon on each sprint row being clicked
@@ -730,19 +738,25 @@ function changeTaskState(stateID,taskName){
 
 //function called from above to delete a sprint
 function deleteSprint(sprintID,sprintOkToDelete){
-	//console.log(sprintID);
+	//just in case any form elements have not been removed, remove them anyway
 	$("#popupFormContainer").remove();
-	$("#greyOut").velocity("transition.fadeIn")
-	.velocity({opacity:0.9});
-	$("#popupContact").velocity("transition.bounceDownIn")
-	.velocity({opacity:1});
 	
+	//check to see if there is any content on the page associated with the sprint and show relevant message based on the result of that check
+	//If the sprint is ok to delete
 	if (sprintOkToDelete === 1) {
-		$("#popupContact").prepend('<img id="msgImg" src="../images/query.svg" /> <h1 id="msgH1">Sorry you cannot delete this Sprint its has Work Items associated with it.</h1> <br> <a href="#" id="msgClose">Ok</a>');
+		$("#popupContact").prepend('<img id="msgImg" src="../images/query.svg" /> <h1 id="msgH1">Sorry you cannot delete this sprint, it has work items associated with it.</h1> <br> <a href="#" id="msgClose">Ok</a>');
 	}
+	//if the sprint is not ok to delete
 	else{
 		$("#popupContact").prepend('<img id="msgImg" src="../images/query.svg" /> <h1 id="msgH1">Are you sure you want to delete this Sprint?</h1> <br> <a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a>');
 	};
+	
+	//now the correct element has been added to the DOM show the modal window
+	$("#greyOut").velocity("transition.fadeIn")
+	.velocity({opacity:0.9});
+	$("#popupContact").velocity("transition.bounceDownIn")
+	
+	//if the user clicks cancel dismiss the modal window and remove elements from the DOM so they dont stack up on each other
 	$("#msgClose").click(function(e) {
 		e.preventDefault();
 		$("#popupContact").velocity("transition.bounceUpOut");
@@ -752,7 +766,8 @@ function deleteSprint(sprintID,sprintOkToDelete){
 		$("#msgClose").remove();
 		$("#confirmButton").remove();			
 	});
-		
+	
+	//if the user clicks confirm remove the previous modal message from the DOM in preparation of recieving feedback from the php file	
 	$("#confirmButton").click(function(e) {
 		e.preventDefault();
 		$("#msgImg").remove();
@@ -760,7 +775,7 @@ function deleteSprint(sprintID,sprintOkToDelete){
 		$("#msgClose").remove();
 		$("#confirmButton").remove();
 		
-		//Ajax request to update the current PBI with whatever new value has been entered in to the form
+		//Ajax request to delete the sprint 
 		$.ajax({
 			type: "POST",
 			url: "../php/DeleteSprint.php",
@@ -794,5 +809,117 @@ function deleteSprint(sprintID,sprintOkToDelete){
 			}
 		});
 	});
+}
+
+//function called from above to edit a sprint
+function editSprint(sprintID, sprintName){
+	//first we need to get the sprint that has been clicked on's data, this is so that a user can just click on an edit button without first
+	//needing to have click of the sprint itself.
+	$.ajax({
+		type: "POST",
+		url: "../php/SprintDetailsForEdit.php",
+		data: {
+			postedSprintID:sprintID,
+		},
+		dataType: "json",
+		success: function load (sprintDataForEdit){
+			showSprintDataForEdit(sprintDataForEdit)			 
+		},
+		error: function() {
+			console.log('error')
+		}
+	});
+	
+	//If the Ajax call is sucessful this function will get called.
+	function showSprintDataForEdit(sprintDataForEdit){
+		//add the edit form to the modal window
+		$("#popupContact").prepend(
+			'<div id="popupFormContainer"><h1>Edit Sprint</h1><form id="SprintCreateForm" class="pbiDetailsForm" method="post" action="../js/updatePBIs"><div class="createSprintForm"><label for="sprintName">Title</label><input id = "sprintName" title="sprintName"></div>'+ 
+			'<div class="createSprintForm"><label for="startDate">Start Date</label><input id = "startDate" title="startDate" type="date"></div>'+
+			'<div class="createSprintForm"><label for="endDate">End Date</label><input id = "endDate" title="endDate" type="date"></div></form>'+          
+			'<div class="createSprintYesNo"><a href="#" id="confirmButton">Submit</a> <a href="#" id="msgClose">Cancel</a></div></div></div>'
+		)
+		
+		//set the fields in the form equal to data retrieved from the ajax request and from the initial click event.
+		$('#sprintName').val(sprintName.substring(sprintName.indexOf("-")+2));
+		$('#startDate').val(sprintDataForEdit[0].itStartReadable);
+		$('#endDate').val(sprintDataForEdit[0].itEndReadable);
+		
+		//now the html elements have been added to the DOM and their values set show the modal window.
+		$("#popupFormContainer").show();
+		$("#greyOut").velocity("transition.fadeIn")
+		.velocity({opacity:0.9});
+		$("#popupContact").velocity("transition.bounceDownIn")
+		.velocity({opacity:1});
+		
+		//if the user clicks cancel close the modal window and remove the elements from the dom so they dont stack up in the modal window.
+		$("#msgClose").click(function(e) {
+			e.preventDefault();
+			$("#popupContact").velocity("transition.bounceUpOut");
+			$("#greyOut").velocity("transition.fadeOut",{delay:200});
+			$("#popupFormContainer h1").remove();
+			$("#SprintCreateForm").remove();
+			$(".createSprintYesNo").remove();			
+		});
+		
+		//if the user clicks confirm grab the data in the form and call the update php file to update the sprints row in the database.	
+		$("#confirmButton").click(function(e) {
+			e.preventDefault();
+			//the below prevents the ajax call event from bubbling up and calling the AJAX twice
+			e.stopImmediatePropagation();
+			
+			//get all values from the form.
+			var newSprintName = document.getElementById("sprintName").value;
+			var newStartDate = document.getElementById("startDate").value;
+			var newEndDate = document.getElementById("endDate").value;
+
+			//Ajax request to update a sprint with the info entered into the form.
+			$.ajax({
+				type: "POST",
+				url: "../php/UpdateSprint.php",
+				data: {
+					postedName:newSprintName,
+					postedStartDate:newStartDate,
+					postedEndDate:newEndDate,
+					postedID:sprintID
+				},
+				success: function(results) {
+					$("#popupFormContainer").hide();
+					$("#popupContact").prepend('<img id="msgImg" src="../images/tick.svg" /> <h1 id="msgH1">Sprint successfully updated!</h1> <br> <a href="#" id="msgClose">OK</a>');
+					
+					//Close popup div and remove elements from the div so they don't stack up on each other
+					$("#msgClose").click(function(e) {
+						e.preventDefault();
+						$("#popupContact").velocity("transition.bounceUpOut");
+						$("#greyOut").velocity("transition.fadeOut",{delay:200});
+						$("#msgImg").remove();
+						$("#msgH1").remove();
+						$("#msgClose").remove();
+						$("br").remove();
+						$('#SprintCreateForm').trigger("reset");			
+					});
+				},
+				error: function(results) {
+					//style and add content to a status div that pops up to provide feedback on how the update went
+					$("#popupFormContainer").hide();
+					$("#greyOut").velocity("transition.fadeIn")
+					.velocity({opacity:0.9});
+					$("#popupContact").velocity("transition.bounceDownIn")
+					.velocity({opacity:1});
+					$("#popupContact").prepend('<img id="msgImg" src="../images/cross.svg" /> <h1 id="msgH1">Sorry we could not update your sprint.</h1> <br> <a href="#" id="msgClose">OK</a>');
+					
+					//Close popup div and remove elements from the div so they don't stack up on each other$("#msgClose").click(function(e) {
+					$("#msgClose").click(function(e) {
+						e.preventDefault();
+						$("#popupContact").velocity("transition.bounceUpOut");
+						$("#greyOut").velocity("transition.fadeOut",{delay:200});
+						$("#msgImg").remove();
+						$("#msgH1").remove();
+						$("#msgClose").remove();			
+					});
+				}
+			});
+		});
+	};
 }
 

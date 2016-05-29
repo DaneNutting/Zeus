@@ -50,7 +50,7 @@
    
   //Query to return the people tasks can be assigned to
   $assigneeQuery =
-   "SELECT CONCAT_WS(' ', user_forename, user_surname) as assignee_name FROM `test_user`";         
+   "SELECT CONCAT_WS(' ', user_forename, user_surname) as assignee_name FROM `users2`";         
   
   //Run the project query and iterate over each row, adding it to an array
   // $projectResult = $conn->query($projectQuery) or exit("Error code ({$conn->errno}): {$conn->error}");
