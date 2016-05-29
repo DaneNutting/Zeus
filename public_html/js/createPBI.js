@@ -1,6 +1,6 @@
 /*================================================================================================================*/
 /*================================================================================================================*/
-// JavaScript to process the update of any PBI displayed in the PBI form
+// JavaScript to process the creation of a PBI 
 /*================================================================================================================*/
 /*================================================================================================================*/
 
@@ -32,18 +32,9 @@
 		document.getElementById("pbiDetailPriority").value = "";
 		document.getElementById("pbiDetailState").value = "";
 		document.getElementById("pbiIteration").value = "";
-		//document.getElementById("pbiProject").value = "";
 		
 	 });
-	
-	// $('#form').find('.input').keypress(function(e){
-	// 	if ( e.which == 13 ) // Enter key = keycode 13
-	// 	{
-	// 		$(this).next().focus();  //Use whatever selector necessary to focus the 'next' input
-	// 		return false;
-	// 	}
-	// });
-	
+	 
 	$("#createPBI").click(function(e) {	
 		e.preventDefault() 
 		//Variables 
@@ -54,8 +45,6 @@
 		var updatePriority = document.getElementById("pbiDetailPriority").value;
 		var updateState = document.getElementById("pbiDetailState").value;
 		var updateIteration = document.getElementById("pbiIteration").value;
-		//var updateProject = document.getElementById("pbiProject").value;
-		//var status = document.getElementById("UpdateStatus");
 
 		//Check if the Title field is empty before submitting - if it is then do not submit the data
 		//And provide a suitable error message

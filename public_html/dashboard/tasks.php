@@ -1,7 +1,5 @@
 <?php
-	//require_once($_SERVER['DOCUMENT_ROOT'] . '/login_system/auth.php' );
   require_once('../login_system/auth.php');
-  //include("protect.php");
 ?>
 
 <!doctype html>
@@ -14,17 +12,11 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 <link rel="shortcut icon" href="../images/ico/favicon.ico">
-<!--<link rel="stylesheet" href="../chartist-js-master/dist/chartist.min.css">-->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-<!--<link rel="stylesheet" href="../chartist-js-master/site/styles/main.scss">-->
 <link rel="stylesheet" href="../css/popupstyle.css">
-<!--<link rel="stylesheet" href="../css/graphstyle.css"></link>-->
-<!--<link rel="stylesheet" href="../css/signup.css"></link>	 -->
 <link rel="stylesheet" href="../css/dashboardStyle.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!--<script src="../js/scroll.js"></script>
-<script src="../js/ClickOnClass.js"></script>-->
 <script src="../js/searchTasks.js"></script>
 <script src="../js/createTask.js"></script>
 <script src="../js/deleteTask.js"></script>
@@ -79,11 +71,6 @@
       <!-- Bar across the screen that holds four drop down menus to add filters to a search for PBI's-->
       <div id="searchBar" class="fullwidth clearfix">
         <form id="projectSearch" method="post" action="../js/searchPBIs">
-
-            <!--<p>Choose a project:</p>
-            <select id="projects">
-              <option value="Any">Any</option>
-            </select>-->
             
             <p>Choose a sprint:</p>
             <select id="sprints">
@@ -129,10 +116,10 @@
             <input id = "taskTitle" title="task Title">
             
             <label for="pbiTitle">PBI Title</label>
-            <input id = "pbiTitle" title="PBI Title"> <!-- class="typeahead" type="text">-->
+            <input id = "pbiTitle" title="PBI Title"> 
             
             <label for="assignee">Assignee</label>
-            <input id = "assignee" title="assignee"> <!--class="typeahead" type="text">-->
+            <input id = "assignee" title="assignee"> 
             
             <label for="taskDescription">Description</label>
             <textarea id = "taskDescription"></textarea>
@@ -152,9 +139,6 @@
             <select id = "taskIteration">
             </select>
             
-            <!--<label for="taskProject">Project Name</label>
-            <select id = "taskProject">
-            </select>-->
             
             <button type="submit" id="createPBI" value="Create" class="formbutton">Create</button>
             <button type="submit" id="pbiDetailsButton" value="Update" class="formbutton">Update</button>  

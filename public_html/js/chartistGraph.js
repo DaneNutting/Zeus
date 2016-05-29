@@ -95,11 +95,9 @@
             //options to use when with smaller screens    
 	        var responsiveOptions = [
               ['screen and (min-width: 501px) and (max-width: 1024px)', {
-                  //showPoint: false,
                   axisX: {
                       labelInterpolationFnc: function (value) {
                           // Will return just the sprint number on medium screens
-                          //return value.slice(0, 3);
                           //find the position of the last instance of a t in the x axis label
                           var tInString = value.lastIndexOf('t');
                           
@@ -118,7 +116,6 @@
                   axisX: {
                       labelInterpolationFnc: function (value) {
                           // Will return just the sprint number on small screens
-                          //return value[0];
                           //this code is the same as the above.
                           var tInString = value.lastIndexOf('t');
                           var endofString = value.length;
@@ -136,11 +133,9 @@
                   axisY:{
                     onlyInteger: true
                   },
-                  //showPoint: false,
                   axisX: {
                       labelInterpolationFnc: function (value) {
                           // Will return just the sprint number on medium screens
-                          //return value.slice(0, 3);
                           //find the position of the last instance of a t in the x axis label
                           var tInString = value.lastIndexOf('t');
                           
@@ -159,7 +154,6 @@
                   axisX: {
                       labelInterpolationFnc: function (value) {
                           // Will return just the sprint number on small screens
-                          //return value[0];
                           //this code is the same as the above.
                           var tInString = value.lastIndexOf('t');
                           var endofString = value.length;
@@ -295,8 +289,6 @@
                 var value = $point.attr('ct:value')
                 var arrayPosition = remainingEffort.indexOf(value)
                 var relatedSprintNo = xlab[arrayPosition]
-                //console.log(relatedSprintNo);
-                //console.log("./dashboard/sprints.php?" + relatedSprintNo);
                 location = "./dashboard/sprints.php?SprintNo=" + relatedSprintNo.trim()
               })
             });
@@ -310,19 +302,10 @@
             $chart.on('mousemove', function(event) {
               $toolTip.css({
                 left: (event.offsetX || event.originalEvent.layerX) - $toolTip.width() / 2 - 10,
-                top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 40
-                  //  left:220,
-                  //  top:35                   
+                top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 40                
               });
             });
-            
-            // $('.ct-point').click(function(e){
-            //     value = $point.attr('ct:value')
-            //     console.log(value);    
-              
-            //     var arrayPosition = remainingEffort.indexOf(value)
-            //     console.log(arrayPosition);
-            //   })
+
 /*================================================================================================================*/
 /*================================================================================================================*/
 // Create the Bar Chart
@@ -361,14 +344,7 @@
 	                        // The value where it should end
 	                        to: 1
 	                    },
-                        /*y1: {
-	                        begin: seq * delays,
-	                        dur: durations,
-	                        from: data.y -10,
-	                        to: data.y,
-	                        easing: 'easeOutQuart'
-	                    }*/
 	                });
 	            }
-                });
+            });
 	    };

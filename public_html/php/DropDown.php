@@ -1,9 +1,8 @@
 <?php
   
-  //PHP file to find the values needed to populate the drop down filter boxes
+  //PHP file to find the values needed to populate the drop down filter boxes on the backlog page
   
   // Connecting to the MySQL server
-
   include('DatabaseCon.php');
 
   //Start session
@@ -15,12 +14,6 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   } 
-   
-  //Query for return Project names
-  // $projectQuery = 
-  //   "Select project_name
-  //     from project
-  //     order by project_name";
   
   //Query for returning Sprints - commented query limits you to seeing the sprints that you are in or are in the past
   //This was removed so you can use Zeus to plan for the future.     
@@ -51,15 +44,6 @@
   //Query to return the people tasks can be assigned to
   $assigneeQuery =
    "SELECT CONCAT_WS(' ', user_forename, user_surname) as assignee_name FROM `users2`";         
-  
-  //Run the project query and iterate over each row, adding it to an array
-  // $projectResult = $conn->query($projectQuery) or exit("Error code ({$conn->errno}): {$conn->error}");
-
-	// while ($row = mysqli_fetch_array($projectResult, MYSQL_ASSOC)) {
-	// 	$Projects[] = array(
-	// 		'projectName' => $row['project_name']
-	// 	  );
-	// }
   
   //Run the sprint query and iterate over each row, adding it to an array
   $sprintResult = $conn->query($sprintQuery) or exit("Error code ({$conn->errno}): {$conn->error}");
@@ -105,7 +89,6 @@
 	}
 
   //Combine all of the arrays generated above into one array to be passed to the JavaScript
-  //$AllResults[] = array($Projects, $Sprints, $Priority, $State, $pbiTitle, $assignee);
   $AllResults[] = array($Sprints, $Priority, $State, $pbiTitle, $assignee);
 
 	echo json_encode($AllResults);
