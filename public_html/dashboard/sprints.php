@@ -13,18 +13,12 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 <link rel="shortcut icon" href="../images/ico/favicon.ico">
-<!--<link rel="stylesheet" href="../chartist-js-master/dist/chartist.min.css">-->
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-<!--<link rel="stylesheet" href="../chartist-js-master/site/styles/main.scss">-->
 <link rel="stylesheet" href="../css/popupstyle.css">
-<!--<link rel="stylesheet" href="../css/graphstyle.css"></link>-->
-<!--<link rel="stylesheet" href="../css/signup.css"></link>	 -->
 <link rel="stylesheet" href="../css/dashboardStyle.css">
 <link rel="stylesheet" href="../css/kanbanStyle.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!--<script src="../js/scroll.js"></script>-->
-<!--<script src="../js/ClickOnClass.js"></script>-->
 <script src="../js/displaySprints.js"></script>
 <script src="../js/createSprint.js"></script>
 <script src="../js/velocity.js"></script>
@@ -76,6 +70,7 @@
       
       <div id="content2" class="fullwidth clearfix">
       	<div class="oneThirdWidth">
+          
           <!--Table of sprints populated on load-->
           <div id="sprintsDiv">
             <div id="currentSprints" class="SprintSelector">Current</div>
@@ -118,34 +113,6 @@
 
     <!-- Popup Div Starts Here -->
       <div id="popupContact">
-        
-        <!--<div id="feedback"> 
-          <img id="msgImg" src="../images/tick.svg" /> <h1 id="msgH1">Sprint was successfully created!</h1> <br> <a href="#" id="msgClose">OK</a>
-        </div>-->
-        
-        <!--<div id="popupFormContainer">
-          <h1>Create Sprint</h1>
-          <form id="SprintCreateForm" class="pbiDetailsForm" method="post" action="../js/updatePBIs">
-            <div class="createSprintForm">
-              <label for="sprintName">Title</label>
-              <input id = "sprintName" title="sprintName">
-            </div>
-              
-            <div class="createSprintForm">
-              <label for="startDate">Start Date</label>
-              <input id = "startDate" title="startDate" type="date">
-            </div>
-              
-            <div class="createSprintForm">
-              <label for="endDate">End Date</label>
-              <input id = "endDate" title="endDate" type="date">
-            </div>
-          </form>
-          
-          <div class="createSprintYesNo">
-            <a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a>
-          </div>
-        </div>   -->
       </div>
     <!-- Popup Div Ends Here -->
     

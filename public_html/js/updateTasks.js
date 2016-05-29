@@ -1,6 +1,6 @@
 /*================================================================================================================*/
 /*================================================================================================================*/
-// JavaScript to process the update of any PBI displayed in the PBI form
+// JavaScript to process the update of any Task displayed in the Task form
 /*================================================================================================================*/
 /*================================================================================================================*/
 
@@ -20,9 +20,6 @@
 		var updateTimeSpent = document.getElementById("timeSpent").value;
 		var updateState = document.getElementById("taskDetailState").value;
 		var updateIteration = document.getElementById("taskIteration").value;
-		//var updateProject = document.getElementById("taskProject").value;
-		
-		console.log(updateID,updateTitle,updatePbiTitle,updateAssignee,updateDesc,updateEstimatedTime,updateTimeSpent, updateState, updateIteration);
 		
 	  //Check if the ID field is empty before submitting - if it is then do not submit the data
 	  //And provide a suitable error message
@@ -82,15 +79,9 @@
 						postedTimeSpent:updateTimeSpent,
 						postedState:updateState,
 						postedIteration:updateIteration,
-						//postedProject:updateProject
 					},
 					success: function(results) {
 						console.log(results);
-						//style and add content to a status div that pops up to provide feedback on how the update went
-						// $("#greyOut").velocity("transition.fadeIn")
-						// .velocity({opacity:0.9});
-						// $("#popupContact").velocity("transition.fadeIn")
-						// .velocity({opacity:1});
 						$("#popupContact").prepend('<img id="msgImg" src="../images/tick.svg" /> <h1 id="msgH1">Your task was successfully updated!</h1> <br> <a href="#" id="msgClose">OK</a>');
 						
 						//Close popup div and remove elements from the div so they don't stack up on each other

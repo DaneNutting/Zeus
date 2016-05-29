@@ -15,19 +15,15 @@
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="stylesheet" href="chartist-js-master/dist/chartist.min.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-<!--<link rel="stylesheet" href="css/popupstyle.css">-->
+
 <link rel="stylesheet" href="css/graphstyle.css"></link>
-<!--<link rel="stylesheet" href="css/signup.css"></link>	 -->
 <link rel="stylesheet" href="css/dashboardStyle.css"></link>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!--<script src="js/velocity.js"></script>
-<script src="js/velocity.ui.js"></script>-->
 <script src="chartist-js-master/dist/chartist.min.js"></script>
 <script src="js/chartistGraph.js"></script> 
 <script src="js/min/pbiData.js"></script>
 <script src="js/chartistPies.js"></script>
-<!--<script src="./js/all.js"></script>  -->
 
 <!-- Google Analytics code, need to add this to all pages!-->
 <script>
@@ -71,10 +67,6 @@
         
     </div>
     
-    <!--<div id="leftNav">
-    	<p>Left Nav</p>
-    </div>-->
-    
     <div id="maincont">
     
       <div id="contentTitle" class="fullwidth clearfix">
@@ -82,7 +74,6 @@
       </div>
       
       <div id ="content1" class="fullwidth clearfix">
-      	<!--<p> content1 </p>-->
         <div class="graph-container">
           <p>Project Burndown</p>
           <div class="ct-chart ct-golden-section" id="chart1"></div> 
@@ -101,7 +92,6 @@
       
       <div id="content3" class="fullwidth clearfix">
       	<p> PBIs This Sprint</p> 
-        <!--<ul class ="mylist"></ul>-->
         <div id="test">
           <table id="testtable" style="width:100%;">
             <tr>
@@ -117,24 +107,6 @@
       </div>
       
     </div>
-    
-    
-    <!--<div id="greyOut">
-    <!-- Popup Div Starts Here -->
-      <!--<div id="popupContact">-->
-        <!-- Contact Us Form -->
-        <!--<form action="#" id="pbi_form" method="post" name="form">-->
-          <!--<img id="close" src="images/ZeusLogo.jpg" style="width:10%;">-->
-          <!--<h2>Contact Us</h2>
-          <input id="name" name="name" placeholder="Name" type="text">
-          <input id="email" name="email" placeholder="Email" type="text">
-          <textarea id="msg" name="message" placeholder="Message"></textarea>
-          <a href="#" id="submit">Send</a>
-          <a href="#" id="close">Cancel</a>
-        </form>
-      </div>-->
-    <!-- Popup Div Ends Here -->
-    <!--</div>-->
 
     <div id="footer" class="fullwidth clearfix">
     </div>

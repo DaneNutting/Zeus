@@ -16,7 +16,7 @@
 			'<div id="popupFormContainer"><h1>Create Sprint</h1><form id="SprintCreateForm" class="pbiDetailsForm" method="post" action="../js/updatePBIs"><div class="createSprintForm"><label for="sprintName">Title</label><input id = "sprintName" title="sprintName"></div>'+ 
             '<div class="createSprintForm"><label for="startDate">Start Date</label><input id = "startDate" title="startDate" type="date"></div>'+
             '<div class="createSprintForm"><label for="endDate">End Date</label><input id = "endDate" title="endDate" type="date"></div></form>'+          
-          	'<div class="createSprintYesNo"><a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a></div></div></div>'
+          	'<div class="createSprintYesNo"><a href="#" id="confirmButton">Create</a> <a href="#" id="msgClose">Cancel</a></div></div></div>'
 		)
 		$("#popupFormContainer").show();
 		$("#greyOut").velocity("transition.fadeIn")
@@ -28,7 +28,10 @@
 		$("#msgClose").click(function(e) {
 			e.preventDefault();
 			$("#popupContact").velocity("transition.bounceUpOut");
-			$("#greyOut").velocity("transition.fadeOut",{delay:200});		
+			$("#greyOut").velocity("transition.fadeOut",{delay:200});
+			$("#popupFormContainer h1").remove();
+			$("#SprintCreateForm").remove();
+			$(".createSprintYesNo").remove();		
 		});
 		
 		//if the yes button is clicked get the values entered and pass them to the php file for processing	

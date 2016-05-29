@@ -1,13 +1,12 @@
 /*================================================================================================================*/
 /*================================================================================================================*/
-// JavaScript to display sprints based on what tab in the left hand table is clicked on
+// JavaScript to display projects based on what projects the currently signed in user has access to 
 /*================================================================================================================*/
 /*================================================================================================================*/
 
 
 $.ajax({
     dataType: "json",
-    //This php file returns the options available in the search filter boxes
     url: "../php/DisplayProjects.php",
     //if the ajax call is successful run the function load - 
     //this contains a parent function for everything else in this JS file
@@ -22,16 +21,7 @@ function populateProjects(results) {
     var clickedPBIID;
     
     //Process the results of the query based on the parameters supplied from drop down box
-    
     $.each(results, function (key, value) {
-
-        console.log(value.imageAddress);
-        //console.log(value.projectName);
-        
-        // $("#projectResultstable").append('<tr class="PBI">' +
-        //     '<td style="display:none">' + value.projectID + '</td>' +
-        //     '<td>' + value.projectName + '</td>' +
-        //     '</tr>');
         if(value.imageAddress != null){
             $('#projectContent').append('<div id="' + value.projectID +'" class="project">'+
                 '<img src =' + value.imageAddress + '>' +
