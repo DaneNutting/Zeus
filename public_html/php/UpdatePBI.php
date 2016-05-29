@@ -4,6 +4,9 @@
   
   // Connecting to the MySQL server
   include('DatabaseCon.php');
+  
+  //Start session
+  session_start();
     
   // Create connection
   $conn = new mysqli($host, $user_name, $pwd, $dbName);
@@ -35,7 +38,7 @@
       pbi_effort = $pbiEffort,
       priority_id = (select priority_id from priority where description = '$pbiPriority'),
       state_id = (select state_id from states where state_name = '$pbiState' and state_type = 'PBI'),
-      iteration_id = (select iteration_id from iteration where iteration_name = '$pbiIteration')
+      iteration_id = (select iteration_id from iteration where iteration_name = '$pbiIteration' and project_id = '".$_SESSION['SESS_PROJECT_ID']."')
       where pbi_id = '$pbiId'";
     
     //Run the query and provide feedback on how the update went

@@ -4,6 +4,9 @@
   
   // Connecting to the MySQL server
   include('DatabaseCon.php');
+  
+  //Start session
+  session_start();
     
   // Create connection
   $conn = new mysqli($host, $user_name, $pwd, $dbName);
@@ -38,7 +41,7 @@
       task_hours_done = '$timeSpent',
       assignee = (select user_id from users2 where concat_ws(' ', user_forename, user_surname) = '$assignee'),
       state_id = (select state_id from states where state_name = '$pbiState' and state_type = 'Tasks'),
-      iteration_id = (select iteration_id from iteration where iteration_name = '$pbiIteration'),
+      iteration_id = (select iteration_id from iteration where iteration_name = '$pbiIteration' and project_id = '".$_SESSION['SESS_PROJECT_ID']."'),
       pbi_id = (select pbi_id from backlog_items where pbi_title = '$pbiTitle')
       where task_id = '$taskId'";
     

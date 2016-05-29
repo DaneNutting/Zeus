@@ -748,6 +748,11 @@ tr{
 	position: relative;
 }
 
+.project:hover{
+	cursor: pointer;
+	box-shadow: 0px 5px 23px 0px rgba(0,0,0,0.2);
+}
+
 .project h1{
 	font-weight: 500;
 }
@@ -762,9 +767,14 @@ tr{
 }
 
 .project img{
-	width:50px;
-	margin:10px 0px 0px 10px;
+	max-width:50px;
+	max-height:47px;
+	margin:10px 15px 0px 10px;
 	vertical-align: bottom;
+}
+
+.createSprintYesNo a{
+	margin-left: 20px;
 }
 
 /* ==================================================

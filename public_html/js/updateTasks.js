@@ -22,6 +22,8 @@
 		var updateIteration = document.getElementById("taskIteration").value;
 		//var updateProject = document.getElementById("taskProject").value;
 		
+		console.log(updateID,updateTitle,updatePbiTitle,updateAssignee,updateDesc,updateEstimatedTime,updateTimeSpent, updateState, updateIteration);
+		
 	  //Check if the ID field is empty before submitting - if it is then do not submit the data
 	  //And provide a suitable error message
 		if (updateID == null || updateID == ""){
