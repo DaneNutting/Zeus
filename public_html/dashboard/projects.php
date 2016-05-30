@@ -26,7 +26,6 @@
 <link rel="stylesheet" href="../css/dashboardStyle.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="../js/scroll.js"></script>
 <script src="../js/ClickOnClass.js"></script>
 <script src="../js/displayProjects.js"></script>
 <script src="../js/velocity.js"></script>
