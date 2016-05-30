@@ -20,7 +20,7 @@
 <script src="../js/searchTasks.js"></script>
 <script src="../js/createTask.js"></script>
 <script src="../js/deleteTask.js"></script>
-<script src="../js/updateTask.js"></script>
+<script src="../js/updateTasks.js"></script>
 <script src="../js/typeahead/typeahead.bundle.min.js"></script>
 <script src="../js/velocity.js"></script>
 <script src="../js/velocity.ui.js"></script>
