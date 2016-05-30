@@ -16,18 +16,8 @@
   } 
 
   // Storing form values into PHP variables
-  //$project = $_POST["postedProject"];
   $sprint = $_POST["postedSprint"];
   $state = $_POST["postedState"];
-  
-  
-  //Check if the incoming variables are equal to 'Any' or are empty and form their respective sql where clauses appropriately
-  // if ($project == 'Any' || empty($project)){
-  //   $projectWhere =  " like '%'";
-  // }
-  // else{
-  //   $projectWhere = " = (select project_id from project where project_name = '$project')";
-  // }
   
    if ($sprint == 'Any' || empty($sprint)){
      $sprintWhere = " like '%'";

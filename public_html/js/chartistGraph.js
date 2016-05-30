@@ -126,7 +126,7 @@
               }]
 	        ];
             
-            //options to use when with smaller screens    
+            //options to use when there are more than 10 sprints    
 	        var responsiveOptionsForMoreThanTenSprints = [
               ['screen and (min-width: 501px) and (max-width: 5000px)', {
                   low: 0,
@@ -141,10 +141,13 @@
                         //find the position of the end of the string - this is important once we get into double figures
                         var endofString = value.length;
                           
-                          //return the slice of the x axis label between the 't' of sprint and the end of the string
+                        //return the slice of the x axis label between the 't' of sprint and the end of the string
                         //   var sprintNo = 'S ' + value.slice(tInString+1,endofString); 
                         //   return sprintNo;
                         var sprintNo = value.slice(tInString+1,endofString); 
+                        
+                        //divide the sprint label by 5 and check if the result is an integer, if it is use it as an x axis label, if it isnt ignore it
+                        //this will result in the x axis labels only being 5, 10, 15 20 etc.
                         var sprintLabel = (sprintNo/5)
                         if(Number.isInteger(sprintLabel)){
                             return sprintNo;

@@ -10,7 +10,6 @@ $(document).ready(function() {
 	            url: "../php/PBIData.php",
 				success: function createArray (pbis) {
                     PBI(pbis);
-                    //console.log(pbis);
 				}         
 	        });
 			
@@ -58,35 +57,6 @@ $(document).ready(function() {
 					// '<td style="border-right:none">'+state[i] +'</td>'+
 					'<td>'+state[i] +'</td>'+
 					'</tr>');
-				};
-				
-/*================================================================================================================*/
-/*================================================================================================================*/			
-// On clicking on a Pbi show a form that has transitions to make it behave like a "pop up"
-/*================================================================================================================*/
-/*================================================================================================================*/
-				
-				// Open
-				//  $(".update").click(function(e) {
-			    //      e.preventDefault();
-				// 	 var greyOut = document.getElementById('greyOut');
-
-				// 	 $("#greyOut").velocity("transition.fadeIn")
-				// 	 .velocity({opacity:0.9});
-				// 	 $("#popupContact").velocity("transition.bounceUpIn")
-				// 	 .velocity({opacity:1});;
-				//  });
-				 
-				//  //Close
-				//   $("#close").click(function(e) {
-			    //      e.preventDefault();
-				// 	 var greyOut = document.getElementById('greyOut');
-				// 	 $("#popupContact").velocity("transition.bounceDownOut");
-				// 	 $("#greyOut").velocity("transition.fadeOut",{delay:200});
-					 
-				//  });
-				
-			};
-		
-			
+				};				
+			};			
 	});	

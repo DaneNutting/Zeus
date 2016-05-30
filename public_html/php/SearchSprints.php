@@ -13,8 +13,6 @@
   } 
   
   $SprintNo = $_POST["postedSprintNoFromURL"];
-  //$SprintNo = 'Sprint 18';
-  //echo $SprintNo;
   $SprintsQuery = "SELECT CONCAT_WS(' - ',e.project_name, b.iteration_name) 'itName', b.iteration_start_date 'itStart', b.iteration_end_date 'itEnd', b.iteration_ID 'itID'
             FROM  iteration b
             inner join releases a on a.release_id = b.release_id
@@ -60,7 +58,6 @@
   
 	while ($row = mysqli_fetch_array($PbiResult, MYSQL_ASSOC)) {
 		$PbiArray[] = array(
-		//$row
       'pbiId' => $row['pbi_id'],
       'pbiTitle' => $row['pbi_title']
 		  );
@@ -98,7 +95,6 @@
   
   while ($row = mysqli_fetch_array($TaskResult, MYSQL_ASSOC)) {
 		$TaskDetails[] = array(
-		//$row
 			'taskId' => $row['task_id'],
 			'taskTitle' => $row['task_title'],
       'taskDesc' => $row['task_description'],

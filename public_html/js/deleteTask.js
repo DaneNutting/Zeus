@@ -1,6 +1,6 @@
 /*================================================================================================================*/
 /*================================================================================================================*/
-// JavaScript to process the update of any PBI displayed in the PBI form
+// JavaScript to delete a task
 /*================================================================================================================*/
 /*================================================================================================================*/
 
@@ -8,6 +8,7 @@
 	 
 	$("#deletePbiButton").click(function(e) {	
 		e.preventDefault() 
+		
 		//Variables 
 		var updateID = document.getElementById("taskID").value;
 		
@@ -21,7 +22,7 @@
 				.velocity({opacity:1});
 				$("#popupContact").prepend('<img id="msgImg" src="../images/cross.svg" /> <h1 id="msgH1">We could not delete this task, the ID field is empty.</h1> <br> <a href="#" id="msgClose">Cancel</a>');
 				
-				//Close popup div and remove elements from the div so they don't stack up on each other$("#msgClose").click(function(e) {
+				//Close popup div and remove elements from the div so they don't stack up on each other
 				$("#msgClose").click(function(e) {
 					e.preventDefault();
 					$("#popupContact").velocity("transition.bounceUpOut");
@@ -40,6 +41,7 @@
 			.velocity({opacity:1});
 			$("#popupContact").prepend('<img id="msgImg" src="../images/query.svg" /> <h1 id="msgH1">Are you sure you want to delete this task?</h1> <br> <a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a>');
 			
+			//Close popup div and remove elements from the div so they don't stack up on each other
 			$("#msgClose").click(function(e) {
 				e.preventDefault();
 				$("#popupContact").velocity("transition.bounceUpOut");
@@ -49,7 +51,8 @@
 				$("#msgClose").remove();
 				$("#confirmButton").remove();			
 			});
-			  
+			
+			//when the confirm button is clicked process the deletion of the task  
 			$("#confirmButton").click(function(e) {
 				e.preventDefault();
 				$("#msgImg").remove();
@@ -67,10 +70,6 @@
 					success: function(results) {
 						//style and add content to a status div that pops up to provide feedback on how the update went
 						console.log(results);
-						// $("#greyOut").velocity("transition.fadeIn")
-						// .velocity({opacity:0.9});
-						// $("#popupContact").velocity("transition.bounceDownIn")
-						//.velocity({opacity:1});
 						$("#popupContact").prepend('<img id="msgImg" src="../images/tick.svg" /> <h1 id="msgH1">Your task was successfully deleted!</h1> <br> <a href="#" id="msgClose">Ok</a>');
 						
 						//Close popup div and remove elements from the div so they don't stack up on each other
@@ -84,11 +83,6 @@
 						});
 					},
 					error: function(results) {
-						//style and add content to a status div that pops up to provide feedback on how the update went
-						// $("#greyOut").velocity("transition.fadeIn")
-						// .velocity({opacity:0.9});
-						// $("#popupContact").velocity("transition.bounceDownIn")
-						// .velocity({opacity:1});
 						$("#popupContact").prepend('<img id="msgImg" src="../images/cross.svg" /> <h1 id="msgH1">Sorry we could not delete your task.</h1> <br> <a href="#" id="msgClose">Ok</a>');
 						
 						//Close popup div and remove elements from the div so they don't stack up on each other$("#msgClose").click(function(e) {

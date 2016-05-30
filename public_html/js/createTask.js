@@ -1,6 +1,6 @@
 /*================================================================================================================*/
 /*================================================================================================================*/
-// JavaScript to process the update of any PBI displayed in the PBI form
+// JavaScript to create tasks
 /*================================================================================================================*/
 /*================================================================================================================*/
 
@@ -34,7 +34,6 @@
 		document.getElementById("timeSpent").value = "";
 		document.getElementById("taskDetailState").value = "";
 		document.getElementById("taskIteration").value = "";
-		//document.getElementById("taskProject").value = "";
 	 });
 	
 	$("#createPBI").click(function(e) {	
@@ -49,8 +48,6 @@
 		var updateTimeSpent = document.getElementById("timeSpent").value;
 		var updateState = document.getElementById("taskDetailState").value;
 		var updateIteration = document.getElementById("taskIteration").value;
-		//var updateProject = document.getElementById("taskProject").value;
-		//var status = document.getElementById("UpdateStatus");
 
 		//Check if the Title field is empty before submitting - if it is then do not submit the data
 		//And provide a suitable error message

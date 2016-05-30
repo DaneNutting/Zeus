@@ -26,10 +26,7 @@ $(document).ready(function() {
          $(target).velocity("scroll", {
              easing: [300,28],
              duration: 1000,
-             //offset: 1000
          });
-        
-        //$(target).velocity("scroll", {easing:'easeInOutExpo', duration:300});
         //Add the css class underline to the most recently 
         //navigated to link unless navigating to the top of the page
         if (target != "#hero") {
@@ -38,13 +35,4 @@ $(document).ready(function() {
         }   
         
     });
-/*    
-	   $("div").mouseenter(function(){
-	   	 var id = $(this).attr('id');
-       if (id != "hero"){
-  	   	 $('a').removeClass('underline');
-  	   	 $("[href=#"+id+"]").addClass('underline');
-       }
-	   });
- */ 
 });

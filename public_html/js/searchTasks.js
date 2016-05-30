@@ -1,6 +1,6 @@
 /*================================================================================================================*/
 /*================================================================================================================*/
-// JavaScript to search for Pbi's based on values entered into filter drop down boxes
+// JavaScript to search for tasks based on values entered into filter drop down boxes
 /*================================================================================================================*/
 /*================================================================================================================*/
 $(document).ready(function() {
@@ -36,10 +36,8 @@ function populateDropDowns(results) {
 	
 	// Variables 
     var taskIDFromURL = getUrlParameter("taskId");
-	//var project = $("#projects");
 	var sprint = $("#sprints");
 	var state = $("#pbiState");
-	//var phpProjectValues = [];
 	var phpSprintValues = [];
 	var phpStateValues = [];
 	var phpPbiTitles = [];
@@ -55,19 +53,6 @@ function populateDropDowns(results) {
 		phpPbiTitles = value[2];
 		phpAssignees = value[3];
 	});
-	
-	//Get the values out of the child array variables and append the values to the search filter boxes
-	//And to the Pbi detail form to aid user choice when creating a PBI through the Zeus UI
-		
-	//Populate the first child variable with project values
-	// $.each(phpProjectValues,function(key,value){
-	// 	project.append('<option value="'+ value.projectName +'">' + value.projectName +'</option>')
-	// })
-	
-	// //Populate the PBI form project drop down with project values
-	// $.each(phpProjectValues,function(key,value){
-	// 	$("#taskProject").append('<option value="'+ value.projectName +'">' + value.projectName +'</option>')
-	// })
 	
 	//Populate the second child variable with Sprint name values
 	$.each(phpSprintValues,function(key,value){
@@ -108,13 +93,13 @@ function populateDropDowns(results) {
 	});
 	
 	$('#assignee').typeahead({
-	hint: true,
-	highlight: true,
-	minLength: 1
-	},
-	{
-	//name: 'states',
-	source: assignees
+        hint: true,
+        highlight: true,
+        minLength: 1
+        },
+        {
+        //name: 'states',
+        source: assignees
 	});
 	
 	// constructs the suggestion engine
@@ -126,13 +111,13 @@ function populateDropDowns(results) {
 	});
 	
 	$('#pbiTitle').typeahead({
-	hint: true,
-	highlight: true,
-	minLength: 1
-	},
-	{
-	//name: 'states',
-	source: pbiTitle
+        hint: true,
+        highlight: true,
+        minLength: 1
+        },
+        {
+        //name: 'states',
+        source: pbiTitle
 	});
 	
     if (taskIDFromURL != null){
@@ -280,7 +265,6 @@ function populateDropDowns(results) {
             timeSpentField.value = value.taskHoursDone;
             taskStateField.value = value.state;
             taskIterationField.value = value.itName;
-            //taskProjectField.value = value.project;
         })
     };
 };

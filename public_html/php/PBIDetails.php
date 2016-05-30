@@ -19,14 +19,6 @@
             inner join priority c on c.priority_id = a.priority_id
             inner join states d on d.state_id = a.state_id
             where  pbi_id = '$PBIID'";     
-    
-  // if ($conn->query($query) === TRUE) {
-  //     //echo "New record created successfully"
-	//   //header("Location: http://www.wearezeus.co.uk/indexdev.html");
-  // } else {
-  //     //echo "Error: " . $query . "<br>" . $conn->error;
-	//   //header("Location: http://www.wearezeus.co.uk/indexdev.html");
-  // }
   
   $result = $conn->query($query) or exit("Error code ({$conn->errno}): {$conn->error}");
 
@@ -40,8 +32,7 @@
       'pbiEff' => $row['pbi_effort'],
       'priority'=> $row['priority'],
       'state' => $row['state'],
-      'itName' => $row['itName'],
-      //'project' => $row['projName'],
+      'itName' => $row['itName']
 		  );
 	}
 

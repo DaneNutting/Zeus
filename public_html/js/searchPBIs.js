@@ -37,11 +37,9 @@ function populateDropDowns(results) {
     
 	// Variables 
     var PBIIDFromURL = getUrlParameter("PBIId");
-	//var project = $("#projects");
 	var sprint = $("#sprints");
 	var priority = $("#pbiPriority");
 	var state = $("#pbiState");
-	//var phpProjectValues = [];
 	var phpSprintValues = [];
 	var phpPriorityValues = [];
 	var phpStateValues = [];
@@ -49,25 +47,11 @@ function populateDropDowns(results) {
 	//The JSON array returned by the php file is an array of arrays this each loop goes through each of
 	//the child arrays and sets the equal to a variable.
 	$.each(results, function (key, value){
-		//phpProjectValues = value[0];
 		phpSprintValues = value[0];
 		phpPriorityValues = value[1];
 		phpStateValues = value[2];
 	});
-	
-	//Get the values out of the child array variables and append the values to the search filter boxes
-	//And to the Pbi detail form to aid user choice when creating a PBI through the Zeus UI
-		
-	//Populate the first child variable with project values
-	// $.each(phpProjectValues,function(key,value){
-	// 	project.append('<option value="'+ value.projectName +'">' + value.projectName +'</option>')
-	// })
-	
-	//Populate the PBI form project drop down with project values
-	// $.each(phpProjectValues,function(key,value){
-	// 	$("#pbiProject").append('<option value="'+ value.projectName +'">' + value.projectName +'</option>')
-	// })
-	
+
 	//Populate the second child variable with Sprint name values
 	$.each(phpSprintValues,function(key,value){
 		sprint.append('<option value="'+ value.IterationName +'">' + value.IterationName +'</option>')

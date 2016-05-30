@@ -20,6 +20,7 @@
   $priority = $_POST["postedPriority"];
   $state = $_POST["postedState"];
   
+  //dynamic where clauses
    if ($sprint == 'Any' || empty($sprint)){
      $sprintWhere = " like '%'";
    }

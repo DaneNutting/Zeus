@@ -17,7 +17,6 @@
   $taskId = substr($taskName,4);
   
   //Check for a Null pbiID coming from the front end and throw and error 
-  //if($stateId >= 7){ 
     $query = "UPDATE task SET state_id = '$stateId' WHERE task_id = '$taskId' ";
 
     //Run the query and provide feedback on how the update went
@@ -26,12 +25,6 @@
     } else {
          echo "Error: " . $query . "<br>" . $conn->error;
     }    
-  //}
-  
-  // else{
-  // //Query to update a PBI based on the ID of that PBI
-  // //exit("Error: PBI Title is null or empty");  
-  // }
   
   echo $stateId, $taskName, $taskId;
   

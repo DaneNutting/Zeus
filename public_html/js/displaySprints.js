@@ -1,6 +1,7 @@
 /*================================================================================================================*/
 /*================================================================================================================*/
 // JavaScript to display sprints based on what tab in the left hand table is clicked on
+// This file also contains the code to edit and delete sprints
 /*================================================================================================================*/
 /*================================================================================================================*/
 
@@ -23,7 +24,6 @@ $(document).ready(function() {
 	var sprintNoFromURL = getUrlParameter("SprintNo");
 		
 	if (sprintNoFromURL != null){
-		//console.log(sprintNoFromURL);
 	
 		$.ajax({
             type: "POST",
@@ -57,7 +57,7 @@ $(document).ready(function() {
 
 //This function acts as a parent function and is fired on the success call back of the above AJAX request
 function populateSprints(results) {
-		
+
 		var getUrlParameter = function getUrlParameter(sParam) {
 			var sPageURL = decodeURIComponent(window.location.search.substring(1)),
 				sURLVariables = sPageURL.split('&'),
@@ -72,7 +72,8 @@ function populateSprints(results) {
 				}
 			}
 		};
-	
+		
+		//set up variables
 		var sprintNoFromURL = getUrlParameter("SprintNo");
 		var iterationID = [];
 		var iterationName = [];
@@ -180,11 +181,9 @@ function populateSprints(results) {
 				);
 			});
 			sprintHasWorkItems = 1;
-			//console.log(sprintHasWorkItems);
 		}
 		catch (error) {
 			sprintHasWorkItems = 0;
-		//console.log("caught null array");
 		}
 		
         //Show all of the tasks related to the PBIs returned above and place them into their respective columns depending on their state
@@ -265,33 +264,10 @@ function populateSprints(results) {
 							'</div>'
 						);
 					}
-				};
-				
-				//add a border to tasks to visually represent the priority of the tasks
-				//if the task is critcal add a pink border		
-				// if(value.priorityId == 1){
-				// 	var task = $("'#task" + value.taskId + "'");
-				// 	console.log(task);
-				// 	task.css({"border-left":"11px solid #69a6cd"});
-				// }
-				// //if the task has a high priority then add a yellow border
-				// else if(value.priorityId == 2){
-					
-				// }
-				// //if the task has a medium priority then add a blue border
-				// else if(value.priorityId == 3){
-				// 	var task = $("'#task" + value.taskId + "'");
-				// 	console.log(task);
-				// 	task.css({"border-left":"11px solid #69a6cd"});
-				// }
-				// //if the task has a low priority then add a green border
-				// else if(value.priorityId == 4){
-					
-				// }	
+				};	
 			});
 		} 
 		catch (error) {
-		//console.log("caught null array");
 		}
 		
 		//listen for edit icon on each sprint row being clicked
@@ -302,7 +278,6 @@ function populateSprints(results) {
 			var sprintName = e.target.parentNode.firstChild.textContent;
 			console.log(sprintName);
 			editSprint(sprintID,sprintName);
-			//console.log('edit clicked');
 		});
 		
 		//listen for delete icon on each sprint row being clicked
@@ -325,7 +300,6 @@ function populateSprints(results) {
 				
 			//if the number of rows in the results table is greater than one - delete the rows in preparation for fresh data
 			if (rows > 1){
-				//console.log(rows);
 				for (i=rows-1; i>0; i--){
 					table.deleteRow(i);
 				}
@@ -362,7 +336,6 @@ function populateSprints(results) {
 				
 			//if the number of rows in the results table is greater than one - delete the rows in preparation for fresh data
 			if (rows > 1){
-				//console.log(rows);
 				for (i=rows-1; i>0; i--){
 					table.deleteRow(i);
 				}
@@ -444,7 +417,6 @@ function populateSprints(results) {
 			$(".deleteSprint").click(function(e) {
 				e.preventDefault();	
 				e.stopPropagation();
-				//console.log('delete clicked');
 				var sprintID = e.target.parentNode.parentNode.firstChild.textContent;
 				deleteSprint(sprintID,sprintHasWorkItems);
 			});
@@ -452,7 +424,6 @@ function populateSprints(results) {
 			//Wait for a sprint to be clicked on and when it is get the ID of that sprint so that more details can be shown about that PBI
 			$(".PBI").bind('click',function(e) {
 				e.preventDefault();
-				//console.log('pbi');
 				//This looks at the parent row of the cell being clicked on and gets the first child of that row which will always be the ID
 				clickedSprintID = e.target.parentNode.firstChild.textContent;
 	
@@ -520,12 +491,9 @@ function populateSprints(results) {
 						);
 					});
 					sprintHasWorkItems = 1;
-					//console.log(sprintHasWorkItems);
 				}
 				catch (error) {
 					sprintHasWorkItems = 0;
-					//console.log(sprintHasWorkItems);
-					//console.log("caught null task array");
 				}
 				
 				try {
@@ -608,7 +576,6 @@ function populateSprints(results) {
 					});
 				} 
 				catch (error) {
-				//console.log("caught null task array");
 				}
                 $('.Task').dblclick(function(e){
             location = "./tasks.php?taskId=" + this.id.substring(4)
@@ -633,10 +600,6 @@ function populateSprints(results) {
 
     for (var i = 0; i < taskTile.length; i++) {
         taskTile[i].addEventListener('touchmove', function(event){
-        // var touch = event.targetTouches[0];
-        // console.log(touch.pageX);
-        // console.log(touch.pageY);
-        //console.log (event.target);
         console.log ("event target: " + event.target.parentNode.id);
         console.log ("Task pbi Id: " + event.target.parentNode.dataset.pbiid);
         console.log ("class name: " + event.target.parentNode.parentNode.className);
@@ -646,9 +609,6 @@ function populateSprints(results) {
     
     for (var i = 0; i < taskTile.length; i++) {
         taskTile[i].addEventListener('touchend', function(event){
-        // var touch = event.targetTouches[0];
-        // console.log(touch.pageX);
-        // console.log(touch.pageY);
         console.log ("event target: " + event.target.parentNode.id);
         console.log ("Task pbi Id: " + event.target.parentNode.dataset.pbiid);
         console.log ("class name: " + event.target.parentNode.parentNode.className);
@@ -662,7 +622,6 @@ function populateSprints(results) {
 function dragAndDrop(){
 	$('.Task').on('dragstart', function(event) {
 			event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
-			//console.log(event.target.getAttribute('id'));  
 		});
 
 		$('.todo').on('dragover', function(event) {
@@ -690,7 +649,6 @@ function dragAndDrop(){
 				if($(event.target).attr('class') === 'todo'){
 					event.target.appendChild(document.getElementById(notecard));
 					console.log('Moved to to do');
-					//console.log($(event.target).attr('class'));
 					changeTaskState(7,notecard);
 				}						
 				else if ($(event.target).attr('class') === 'inprogress'){
@@ -708,7 +666,7 @@ function dragAndDrop(){
 		
 };
 
-/** AJAX called by the drag functions above */
+/** AJAX called by the drag functions above to change the state of a task*/
 function changeTaskState(stateID,taskName){
 	$.ajax({
 		type: "POST",
@@ -726,7 +684,6 @@ function changeTaskState(stateID,taskName){
 							 
 		},
 		error: function(result) {
-			//console.log(result)
 		},
 		complete: function(){
 			$('#'+ taskName).removeClass("lock");

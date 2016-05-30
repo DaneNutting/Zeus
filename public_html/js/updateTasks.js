@@ -49,6 +49,7 @@
 			.velocity({opacity:1});
 			$("#popupContact").prepend('<img id="msgImg" src="../images/query.svg" /> <h1 id="msgH1">Are you sure you want to update this PBI?</h1> <br> <a href="#" id="confirmButton">Yes</a> <a href="#" id="msgClose">No</a>');
 			
+			//Close popup div and remove elements from the div so they don't stack up on each other
 			$("#msgClose").click(function(e) {
 				e.preventDefault();
 				$("#popupContact").velocity("transition.bounceUpOut");

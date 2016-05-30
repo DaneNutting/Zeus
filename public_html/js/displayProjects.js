@@ -4,7 +4,6 @@
 /*================================================================================================================*/
 /*================================================================================================================*/
 
-
 $.ajax({
     dataType: "json",
     url: "../php/DisplayProjects.php",
@@ -14,7 +13,6 @@ $.ajax({
         populateProjects(result);
     }            
 });
-
 
 //This function acts as a parent function and is fired on the success call back of the above AJAX request
 function populateProjects(results) {

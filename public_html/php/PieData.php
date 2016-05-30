@@ -109,8 +109,6 @@
 		  );
 	}
   
-	//echo json_encode($piearray);
-  
   $AllResults[] = array($piearray, $piearray2, $piearray3);
 
 	echo json_encode($AllResults);

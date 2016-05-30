@@ -63,12 +63,14 @@ function createPies(results){
     $("#pieContainer3 h1").append('<br>'+ parseInt(value.userHoursDone) + '%');
   })
   
+  //responsive options to be used on screens smaller than landscape iPad
   var responsiveOptions = [
     ['screen and (max-width: 1023px)', {
         donutWidth:20
     }]
   ];
   
+  //draw the three pie charts
   var chart = new Chartist.Pie('#pieContainer1', {
       series: pie1Data,
       labels: ["Effort Done", " "]
