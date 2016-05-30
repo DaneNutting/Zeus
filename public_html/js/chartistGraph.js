@@ -135,6 +135,54 @@
                   },
                   axisX: {
                       labelInterpolationFnc: function (value) {
+                        // Will return just the sprint number on medium screens
+                        //find the position of the last instance of a t in the x axis label
+                        var tInString = value.lastIndexOf('t');
+                        //find the position of the end of the string - this is important once we get into double figures
+                        var endofString = value.length;
+                          
+                          //return the slice of the x axis label between the 't' of sprint and the end of the string
+                        //   var sprintNo = 'S ' + value.slice(tInString+1,endofString); 
+                        //   return sprintNo;
+                        var sprintNo = value.slice(tInString+1,endofString); 
+                        var sprintLabel = (sprintNo/5)
+                        if(Number.isInteger(sprintLabel)){
+                            return sprintNo;
+                        }
+                        else{
+                            noLabel = "";
+                            return noLabel;
+                        }
+                     }
+                  }
+              }],
+              
+              ['screen and (max-width: 500px)', {
+                  //showPoint: false,
+                  axisX: {
+                      labelInterpolationFnc: function (value) {
+                        // Will return just the sprint number on small screens
+                        //this code is the same as the above.
+                        var tInString = value.lastIndexOf('t');
+                        var endofString = value.length;
+                        var sprintNo = value.slice(tInString+1,endofString);
+                        //return sprintNo;
+                        if(Number.isInteger(sprintLabel)){
+                        return sprintNo;
+                        }
+                        else{
+                            noLabel = "";
+                            return noLabel;
+                        }
+                     }
+                  }
+              }]
+	        ];
+            
+            var barOptions = [
+              ['screen and (min-width: 501px) and (max-width: 5000px)', {
+                  axisX: {
+                      labelInterpolationFnc: function (value) {
                           // Will return just the sprint number on medium screens
                           //find the position of the last instance of a t in the x axis label
                           var tInString = value.lastIndexOf('t');
@@ -143,26 +191,12 @@
                           var endofString = value.length;
                           
                           //return the slice of the x axis label between the 't' of sprint and the end of the string
-                          var sprintNo = 'S ' + value.slice(tInString+1,endofString); 
-                          return sprintNo;
-                      }
-                  }
-              }],
-              
-              ['screen and (max-width: 500px)', {
-                  //showPoint: false,
-                  axisX: {
-                      labelInterpolationFnc: function (value) {
-                          // Will return just the sprint number on small screens
-                          //this code is the same as the above.
-                          var tInString = value.lastIndexOf('t');
-                          var endofString = value.length;
-                          var sprintNo = value.slice(tInString+1,endofString);
+                          var sprintNo = value.slice(tInString+1,endofString); 
                           return sprintNo;
                       }
                   }
               }]
-	        ];
+            ];
             
             //create the burndown line graph
             //find out how many labels there are on the x-axis, if there are more than 10 use a different set of options to create the graph
@@ -320,7 +354,7 @@
                     series: [effortcommitted.splice(effortcommitted.length -6, 6)]
                 },
                 options,
-                responsiveOptionsForMoreThanTenSprints);  
+                barOptions);  
 
 	        // Once the chart is fully created we reset the sequence
 	        barchart.on('created', function () {

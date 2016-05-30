@@ -108,10 +108,11 @@
       
     </div>
 
-    <div id="footer" class="fullwidth clearfix">
-    </div>
+    
   
   </div>
 
 </body>
+<div id="footer" class="fullwidth clearfix">
+    </div>
 </html>

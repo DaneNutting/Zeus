@@ -58,6 +58,7 @@
 	font-size: 12px;
 	cursor: pointer;
 	position:relative;
+	overflow: hidden;
 }
 
 .Task:hover{

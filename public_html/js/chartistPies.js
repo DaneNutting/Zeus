@@ -63,38 +63,47 @@ function createPies(results){
     $("#pieContainer3 h1").append('<br>'+ parseInt(value.userHoursDone) + '%');
   })
   
+  var responsiveOptions = [
+    ['screen and (max-width: 1023px)', {
+        donutWidth:20
+    }]
+  ];
+  
   var chart = new Chartist.Pie('#pieContainer1', {
       series: pie1Data,
       labels: ["Effort Done", " "]
-  }, 
-  {
-  donut: true,
-  donutWidth : 45,
-  showLabel: false,
-  labelDirection: 'implode'
-  });
+    }, 
+    {
+      donut: true,
+      donutWidth : 45,
+      showLabel: false,
+      labelDirection: 'implode'
+    }, responsiveOptions
+  );
   
   var chart2 = new Chartist.Pie('#pieContainer2', {
       series: pie2Data,
       labels: ["Hours Complete", " "]
-  }, 
-  {
-  donut: true,
-  donutWidth : 45,
-  showLabel: false,
-  labelDirection: 'implode'
-  });
+    }, 
+    {
+      donut: true,
+      donutWidth : 45,
+      showLabel: false,
+      labelDirection: 'implode'
+    }, responsiveOptions
+  );
   
   var chart3 = new Chartist.Pie('#pieContainer3', {
       series: pie3Data,
       labels: ["Hours You've Completed", " "]
-  }, 
-  {
-  donut: true,
-  donutWidth : 45,
-  showLabel: false,
-  labelDirection: 'implode'
-  });
+    }, 
+    {
+      donut: true,
+      donutWidth : 45,
+      showLabel: false,
+      labelDirection: 'implode'
+    },responsiveOptions
+    );
   
   chart.on('draw', function(data) {
     if(data.type === 'slice') {

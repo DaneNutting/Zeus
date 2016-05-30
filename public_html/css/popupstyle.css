@@ -178,11 +178,11 @@ span {
 
 @media screen and (max-width: 1024px)
 {
-    #popupContact {
+    /*#popupContact {
         position: relative;
         margin: 0 auto;
         left:0%;
-    }
+    }*/
     
      #pbi_form{
         margin:0 auto;
