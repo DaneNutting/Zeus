@@ -53,7 +53,6 @@ function populateProjects(results) {
         
         //This looks at the parent row of the cell being clicked on and gets the first child of that row which will always be the ID
         clickedProjectID = e.target.closest('div').id;
-        console.log(clickedProjectID);
         //Now use the ID found above in where clause of a SQL query to return back more specific information about that PBI
         $.ajax({
         type: "POST",

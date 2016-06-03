@@ -19,10 +19,8 @@
 <link rel="shortcut icon" href="../images/ico/favicon.ico">
 <link rel="stylesheet" href="../chartist-js-master/dist/chartist.min.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-<!--<link rel="stylesheet" href="../chartist-js-master/site/styles/main.scss">-->
 <link rel="stylesheet" href="../css/popupstyle.css">
-<link rel="stylesheet" href="../css/graphstyle.css"></link>
-<!--<link rel="stylesheet" href="../css/signup.css"></link>	 -->
+<link rel="stylesheet" href="../css/graphstyle.css">
 <link rel="stylesheet" href="../css/dashboardStyle.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -88,7 +86,7 @@
     <div id="footer" class="fullwidth clearfix">
     </div>
   
-  </div>
+  <!--</div>-->
 
 </body>
 </html>
