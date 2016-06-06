@@ -1,5 +1,6 @@
 <?php
 	session_start();
+   require_once('../login_system/auth.php');
 ?>
 <!DOCTYPE html>
 <head>
@@ -55,8 +56,7 @@
               <input type="text" name="user_forename" id="user_forename" placeholder="First Name">
               <input type="text" name="user_surname" id="user_surname" placeholder="Last Name">
               <input type="text" name="user_email" id="user_email" placeholder="Email">
-              <input type="password" name="user_password" id="user_password" placeholder="Password">
-              <input type="password" name="cpassword" id="cpassword"  placeholder="Confirm Password">
+              <input type="text" name="organisation" id="organisation"  placeholder="Organisation">
               <input type="submit" name="register" class="login login-submit" value="Register">
               
               <!--<table width="300" border="0" align="center" cellpadding="2" cellspacing="0">
