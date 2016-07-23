@@ -8,7 +8,7 @@
  $(function () {
 	 
 	 //Listen for the + button on the sprints page to be clicked
-     $("#showCreatePBIForm").click(function(e) {
+     $("#showCreateSprints").click(function(e) {
 		e.preventDefault();
 		
 		//grey out the screen and show a "pop up" with a form using velocity 

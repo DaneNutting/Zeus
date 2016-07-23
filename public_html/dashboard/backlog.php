@@ -65,7 +65,6 @@
     
       <div id="contentTitle" class="fullwidth clearfix">
       	<h1>Product Backlog Items</h1>
-        <button id ="showCreatePBIForm" class="formbutton">+</button>
       </div>
       <!-- Bar across the screen that holds four drop down menus to add filters to a search for PBI's-->
       <div id="searchBar" class="fullwidth clearfix">
@@ -91,7 +90,8 @@
               <option value="Any">Any</option>
             </select>
 
-          <button type="submit" id="pbiSearch" value="Update" class="formbutton">Update</button>
+          <button type="submit" id="pbiSearch" value="Update" class="formbutton">Filter</button>
+          <button id ="showCreatePBIForm" class="formbutton">Create</button>
 		    </form>
       </div>
      
@@ -102,7 +102,7 @@
       
       <div id="content2" class="fullwidth clearfix">
       	<div class="oneThirdWidth">
-          <h1>Results</h1>
+          <!--<h1>Results</h1>-->
           <!--Table of results populated by searching for PBI's based on filters applied from the search bar above-->
           <div id="pbiSearchResultsDiv">
             <table id="pBIResultstable" style="width:100%;">
@@ -116,18 +116,26 @@
         
         <!-- A div containing more in depth information about a selected PBI -->
         <div class = "twoThirdsWidth">
-          <h1>PBI Details</h1>
+          <!--<h1>PBI Details</h1>-->
           <!--<button id ="showCreatePBIForm" class="formbutton">+</button>-->
           <form id="pbiDetails" class="pbiDetailsForm" method="post" action="../js/updatePBIs">
-            <label for="pbiID">ID</label>
+            <!--<label for="pbiID">ID</label>-->
+            
+            <button type="submit" id="createPBI" value="Create" class="formbutton">Submit</button>
+            <button type="submit" id="pbiDetailsButton" value="Update" class="formbutton">Update</button>  
+            <button type="button" id="deletePbiButton" value="Delete" class="formbutton">Delete</button>
+            <button type="reset" id="pbiDetailsResetButton" value="Cancel" class="formbutton">Cancel</button> 
+            
+            <label for="pbiID" id="pbiIDLab" >ID</label>
             <input id = "pbiID" readonly required>
             
             <label for="pbiTitle">Title</label>
             <input id = "pbiTitle" title="PBI Title">
             
-            <label for="pbiDescription">Description</label>
+            <label for="pbiDescription" class = "pbiDetailsHeader"> Description</label>
             <textarea id = "pbiDescription"></textarea>
             
+            <label class="pbiDetailsHeader">Details</label>
             <label for="pbiEffort">Effort</label>
             <input id = "pbiEffort">  
             
@@ -147,10 +155,6 @@
             <select id = "pbiProject">
             </select>-->
             
-            <button type="submit" id="createPBI" value="Create" class="formbutton">Create</button>
-            <button type="submit" id="pbiDetailsButton" value="Update" class="formbutton">Update</button>  
-            <button type="button" id="deletePbiButton" value="Delete" class="formbutton">Delete</button>
-            <button type="reset" id="pbiDetailsResetButton" value="Cancel" class="formbutton">Cancel</button> 
           </form>
           
           <div id="UpdateStatus" style="opacity:0;">

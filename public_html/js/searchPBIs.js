@@ -102,6 +102,7 @@ function populateDropDowns(results) {
     
 	//perform another AJAX request to populate the results table based on parameters in drop down boxes	
     $("#pbiSearch").click(function(e) {
+		$(":input").removeClass("addborder");
         e.preventDefault();
 	  //This PHP file returns the PBI's that match the values entered into the drop down boxes
 	  $.ajax({

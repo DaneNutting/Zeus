@@ -64,7 +64,7 @@
     
       <div id="contentTitle" class="fullwidth clearfix">
       	<h1>Sprints</h1>
-        <button id ="showCreatePBIForm" class="formbutton">+</button>
+        <button id ="showCreateSprints" class="formbutton">Create</button>
       </div>
       
       <div id="content2" class="fullwidth clearfix">

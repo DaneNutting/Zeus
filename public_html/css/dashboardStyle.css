@@ -316,11 +316,19 @@ ul{
 		}
 	
 	#showCreatePBIForm{
-		float: left;
-		position: relative;
 		margin-bottom: 10px;
 		margin-left: 10px;
 		display: block;
+		box-sizing: border-box;
+		border-top: 2px solid #ec704e;
+		border-left: 2px solid #ec704e;
+	}
+	
+	#showCreateSprints{
+		position:relative;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		display: inline-block;
 		box-sizing: border-box;
 		border-top: 2px solid #ec704e;
 		border-left: 2px solid #ec704e;
@@ -366,8 +374,8 @@ ul{
 			}
 
 		button.formbutton, .sb-search-submit{
-			width: 66px;
-			height: 60px;
+			width: 80px;
+			height: 32px;
 			display: block;
 			position: absolute;
 			right: 0;
@@ -398,7 +406,7 @@ ul{
    				font-size: 18px;
 				color: #FFF;
 				border: 0;
-				height: 50px;
+				height: 32px;
 				cursor:pointer;
 				border: 2px solid #ec704e;
 				/*border-left: 2px solid #ec704e;*/
@@ -578,22 +586,55 @@ select{
 	-webkit-transform: translate3d(0,0,0);	
 }
 
+.addborder{
+	border:1px solid #A2A1A0 !important;
+}
+
 .pbiDetailsForm input{
-	min-width:150px;
+	min-width:100%;
 	width:260px;
 	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 	font-size: 15px;
+	display:block;
+	border:none;
+}
+
+.twitter-typeahead{
+	width:100%;
+}
+
+#estimatedTime{
+	width:100px;
+}
+
+#timeSpent{
+	width:100px;
+}
+
+.pbiDetailsForm label{
+	display:block;
+}
+
+#pbiID{
+	border:none;
+}
+
+.pbiDetailsHeader{
+	border-bottom: 1px solid #ec704e
 }
 
 .pbiDetailsForm textarea{
 	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 	font-size: 15px;
-	width:82%;
-    height:95px;
-    padding:10px;
+	width:100%;
+	margin: 10px 0px 0px 0px;
+    padding:0px;
+	border:none;
+	min-height: 166px;
 }
+
 .tt-menu{
 	background-color: #eee;
 	font-size: 15px;
@@ -611,6 +652,7 @@ select{
 	transition: opacity 0.25s;
 	/*Important to stop the browser redrawing stuff it doesnt need to*/
 	-webkit-transform: translate3d(0,0,0);
+	float:right;
 }
 
 #pbiDetailsButton{
@@ -624,6 +666,7 @@ select{
 	transition: opacity 0.25s;
 	/*Important to stop the browser redrawing stuff it doesnt need to*/
 	-webkit-transform: translate3d(0,0,0);
+	float:right;
 }
 
 #deletePbiButton{
@@ -637,6 +680,11 @@ select{
 	transition: opacity 0.25s;
 	/*Important to stop the browser redrawing stuff it doesnt need to*/
 	-webkit-transform: translate3d(0,0,0);
+	float:right;
+}
+
+#pbiDetailsResetButton{
+	float:right;	
 }
 
 .twoThirdsWidth button{
@@ -810,7 +858,7 @@ tr{
 	}
 	
 	#maincont{
-		width:100%;
+		width:95%;
 	}
 
 	.graph-container{

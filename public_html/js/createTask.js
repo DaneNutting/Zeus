@@ -11,6 +11,9 @@
         e.preventDefault();
 		
 		//Show the pbiDetails form and show the create button
+		$(":input").addClass("addborder");
+		$("#taskID").hide();
+		$("#taskIDLab").hide();
 		$('#pbiDetails').velocity({opacity:1}, {duration:200});
 		$('#createPBI').show();
 		$('#createPBI').css("visibility","visible");

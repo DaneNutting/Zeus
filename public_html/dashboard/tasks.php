@@ -66,7 +66,6 @@
     
       <div id="contentTitle" class="fullwidth clearfix">
       	<h1>Tasks</h1>
-        <button id ="showCreatePBIForm" class="formbutton">+</button>
       </div>
       <!-- Bar across the screen that holds four drop down menus to add filters to a search for PBI's-->
       <div id="searchBar" class="fullwidth clearfix">
@@ -82,7 +81,8 @@
               <option value="Any">Any</option>
             </select>
 
-          <button type="submit" id="pbiSearch" value="Update" class="formbutton">Update</button>
+          <button type="submit" id="pbiSearch" value="Update" class="formbutton">Filter</button>
+          <button id ="showCreatePBIForm" class="formbutton">Create</button>
 		    </form>
       </div>
      
@@ -93,7 +93,7 @@
       
       <div id="content2" class="fullwidth clearfix">
       	<div class="oneThirdWidth">
-          <h1>Results</h1>
+          <!--<h1>Results</h1>-->
           <!--Table of results populated by searching for PBI's based on filters applied from the search bar above-->
           <div id="pbiSearchResultsDiv">
             <table id="pBIResultstable" style="width:100%;">
@@ -107,9 +107,14 @@
         
         <!-- A div containing more in depth information about a selected PBI -->
         <div class = "twoThirdsWidth">
-          <h1>Task Details</h1>
+          <!--<h1>Task Details</h1>-->
           <form id="pbiDetails" class="pbiDetailsForm" method="post" action="../js/updatePBIs">
-            <label for="taskID">ID</label>
+            <button type="submit" id="createPBI" value="Create" class="formbutton">Submit</button>
+            <button type="submit" id="pbiDetailsButton" value="Update" class="formbutton">Update</button>  
+            <button type="button" id="deletePbiButton" value="Delete" class="formbutton">Delete</button>
+            <button type="reset" id="pbiDetailsResetButton" value="Cancel" class="formbutton">Cancel</button> 
+            
+            <label for="taskID" id="taskIDLab">ID</label>
             <input id = "taskID" readonly required>
             
             <label for="taskTitle">Task Title</label>
@@ -121,9 +126,10 @@
             <label for="assignee">Assignee</label>
             <input id = "assignee" title="assignee"> 
             
-            <label for="taskDescription">Description</label>
+            <label for="taskDescription" class="pbiDetailsHeader">Description</label>
             <textarea id = "taskDescription"></textarea>
             
+            <label class="pbiDetailsHeader">Details</label>
             <label for="estimatedTime">Estimated Time</label>
             <input id = "estimatedTime">  
             
@@ -138,12 +144,6 @@
             <label for="taskIteration">Iteration</label>
             <select id = "taskIteration">
             </select>
-            
-            
-            <button type="submit" id="createPBI" value="Create" class="formbutton">Create</button>
-            <button type="submit" id="pbiDetailsButton" value="Update" class="formbutton">Update</button>  
-            <button type="button" id="deletePbiButton" value="Delete" class="formbutton">Delete</button>
-            <button type="reset" id="pbiDetailsResetButton" value="Cancel" class="formbutton">Cancel</button> 
           </form>
           
           <div id="UpdateStatus" style="opacity:0;">
